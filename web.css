@@ -5,10 +5,12 @@ p {
 /* Additional CSS rules */
 body {
   background-color: purple;
+  text-align: center;
 }
 
 h1 {
   font-size: 24px;
+  color: white;
 }
 
 .text {
@@ -18,4 +20,7 @@ h1 {
 #smiley {
   width: 300px;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
