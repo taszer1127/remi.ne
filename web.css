@@ -1,0 +1,21 @@
+p {
+    color: red;
+}
+
+/* Additional CSS rules */
+body {
+  background-color: lightpurple;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.text {
+  color: orange;
+}
+
+#smiley {
+  width: 300px;
+  height: auto;
+}
