@@ -193,7 +193,7 @@
 </body>
 </html>
 
-    <title>Spinning Hearts</title>
+    <title>Static Purple Heart</title>
     <style>
         body {
             display: flex;
@@ -210,21 +210,20 @@
         }
         .heart {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background: purple; /* Changed to purple */
+            width: 100px;
+            height: 90px;
+            background: purple; /* Purple color */
             transform: rotate(-45deg);
-            animation: spin 5s linear infinite;
         }
         .heart:before,
         .heart:after {
             content: "";
             position: absolute;
-            width: 50px;
-            height: 80px;
-            background: purple; /* Changed to purple */
+            width: 100px;
+            height: 150px;
+            background: purple; /* Purple color */
             border-radius: 50px 50px 0 0;
-            top: -25px;
+            top: -75px;
         }
         .heart:before {
             left: 0;
@@ -232,17 +231,9 @@
             transform-origin: bottom left;
         }
         .heart:after {
-            left: 25px;
+            left: 50px;
             transform: rotate(45deg);
             transform-origin: bottom right;
-        }
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
         }
     </style>
 </head>
