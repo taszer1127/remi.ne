@@ -4,7 +4,7 @@ p {
 
 /* Additional CSS rules */
 body {
-  background-color: purple;
+  background-color: #FFA07A;
   text-align: center;
 }
 
@@ -14,7 +14,7 @@ h1 {
 }
 
 .text {
-  color: orange;
+  color: #A369A2;
 }
 
 #smiley {
