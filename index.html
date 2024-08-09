@@ -191,57 +191,5 @@
         }
     </script>
 </body>
-</html>
-
-    <title>Static Purple Heart</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-        }
-        .heart {
-            position: absolute;
-            width: 100px;
-            height: 90px;
-            background: purple; /* Purple color */
-            transform: rotate(-45deg);
-        }
-        .heart:before,
-        .heart:after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 150px;
-            background: purple; /* Purple color */
-            border-radius: 50px 50px 0 0;
-            top: -75px;
-        }
-        .heart:before {
-            left: 0;
-            transform: rotate(45deg);
-            transform-origin: bottom left;
-        }
-        .heart:after {
-            left: 50px;
-            transform: rotate(45deg);
-            transform-origin: bottom right;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="heart"></div>
-    </div>
-</body>
-</html>
 
 </html>
