@@ -147,7 +147,7 @@
 </head>
 <body>
     <div class="container">
-        <button class="button" id="openModalBtn">Open Letter</button>
+        <button class="button" id="openModalBtn">♡</button>
     </div>
 
     <div id="letterModal" class="modal">
@@ -190,6 +190,66 @@
             }
         }
     </script>
+</body>
+</html>
+
+    <title>Spinning Hearts</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: purple; /* Changed to purple */
+            transform: rotate(-45deg);
+            animation: spin 5s linear infinite;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: purple; /* Changed to purple */
+            border-radius: 50px 50px 0 0;
+            top: -25px;
+        }
+        .heart:before {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: bottom left;
+        }
+        .heart:after {
+            left: 25px;
+            transform: rotate(45deg);
+            transform-origin: bottom right;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart"></div>
+    </div>
 </body>
 </html>
 
