@@ -111,7 +111,7 @@
         <div class="tabs">
             <button class="tab-button active" onclick="openTab('tab1')">Home</button>
             <button class="tab-button" onclick="openTab('tab2')">Love Letter</button>
-            <button class="tab-button" onclick="openTab('tab3')">Modal Example</button>
+            <button class="tab-button" onclick="openTab('tab3')">♡</button>
         </div>
 
         <!-- Tab Contents -->
@@ -136,6 +136,7 @@
             <div class="container">
                 <button class="button" id="openFirstModalBtn">♡</button>
                 <button class="button" id="openSecondModalBtn">♡</button>
+                <button class="button" id="openThirdModalBtn">♡</button>
             </div>
 
             <div id="letterModal" class="modal">
@@ -150,7 +151,7 @@
     </div>
 
     <footer>
-        &copy; 2024 Avery Cuteperson
+        &copy; 2024 A very cute person
     </footer>
 
     <script>
@@ -180,7 +181,7 @@
 
         document.getElementById("openFirstModalBtn").onclick = function() {
             openModal(`
-                <h2>Remi,</h2>
+                <h2>Remi</h2>
                 <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do, I hope to always be the same patience and support that you have been for me. 我爱你 amar jaan <3</p>
                 <p>With all my love :)</p>
             `);
@@ -191,6 +192,18 @@
                 <h2>罗行健</h2>
                 <p>我遇见你，是最美丽的意外</p>
                 <p>天娆</p>
+            `);
+        }
+
+        document.getElementById("openThirdModalBtn").onclick = function() {
+            openModal(`
+                <h2>Ruhi</h2>
+                <p>Amar jaan. Tumi amar ar ami tumar. Ami tomare shob take bhalobhasi.</p>
+                <p>Amar bangla nam kita oibo ami zani na... anika? sabrine? na tasneem?</p>
+
+<p>Acha amar nam tumar jaan :)</p>
+
+
             `);
         }
 
