@@ -1,98 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-   <!-- Metadata for the page -->
-   <head>
-       <!-- Title of webpage in the browser -->
-       <title>Remi</title>
-       <meta charset="UTF-8">
-       <link rel="stylesheet" href="web.css"/>
-   </head>
-  
-   <!-- All visible content on the page -->
-   <body>
-       <!-- Main page heading -->
-       <h1>averycuteperson.com</h1>
-     
-       <!-- A paragraph -->
-       <p><span class="text">I have no idea what I'm doing, </span> but I'm going to learn now :).</p>
-     
-       <!-- Image of smiley face -->
-       <img id="smiley" alt="Smiley face" src="https://assets.codepen.io/6093409/smiley-face.png">
-   </body>
+<head>
+    <!-- Title of webpage in the browser -->
+    <title>Remi</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="web.css"/>
 
-    <title>A Love Letter</title>
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background-color: #9d72e0;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #bb8fce;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
-        h1 {
-            color: #d96c75; /* Soft pink */
-            text-align: center;
-        }
-        p {
-            line-height: 1.6;
-            font-size: 1.2em;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            font-size: 0.9em;
-            color: #666;
-            background-color: #9d72e0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>To My Remi</h1>
-        <p>
-            My love, from the moment my eyes saw you, I knew there was something special about you. 
-        </p>
-        <p>
-            Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.
-        </p>
-        <p>
-            With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did. 
-        </p>
-        <p>
-           Always be happy, your smile is my greatest treasure dear.
-        </p>
-        <p>
-            With all my love,<br>
-            Your Neemo
-        </p>
-    </div>
-</body>
-</html>
-
-    <title>Letter Modal Example</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
         }
-        .container {
-            text-align: center;
-            padding: 50px;
+        .tab-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .tabs {
+            overflow: hidden;
+            background-color: #9d72e0;
+        }
+        .tabs button {
+            background-color: #bb8fce;
+            border: none;
+            outline: none;
+            padding: 14px 16px;
+            cursor: pointer;
+            font-size: 17px;
+            transition: background-color 0.3s;
+        }
+        .tabs button:hover {
+            background-color: #d96c75;
+        }
+        .tabs button.active {
+            background-color: #d96c75;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .tab-content.active {
+            display: block;
         }
         .button {
             background-color: #e8743f;
-            color: #fff; /* Fixed color value */
+            color: #fff;
             border: none;
             padding: 15px 32px;
             text-align: center;
@@ -137,33 +96,83 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .letter-content {
-            font-size: 1.2em;
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            color: #666;
+            background-color: #9d72e0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <button class="button" id="openFirstModalBtn">♡</button>
-        <button class="button" id="openSecondModalBtn">♡</button>
-    </div>
+    <div class="tab-container">
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('tab1')">Home</button>
+            <button class="tab-button" onclick="openTab('tab2')">Love Letter</button>
+            <button class="tab-button" onclick="openTab('tab3')">Modal Example</button>
+        </div>
 
-    <div id="letterModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModalBtn">&times;</span>
-            <div id="letterContent" class="letter-content">
-                <!-- Letter content will be injected here -->
+        <!-- Tab Contents -->
+        <div id="tab1" class="tab-content active">
+            <h1>averycuteperson.com</h1>
+            <p><span class="text">I have no idea what I'm doing, </span> but I'm going to learn now :).</p>
+            <img id="smiley" alt="Smiley face" src="https://assets.codepen.io/6093409/smiley-face.png">
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <div class="container">
+                <h1>To My Remi</h1>
+                <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
+                <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
+                <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
+                <p>Always be happy, your smile is my greatest treasure dear.</p>
+                <p>With all my love,<br>Your Neemo</p>
+            </div>
+        </div>
+
+        <div id="tab3" class="tab-content">
+            <div class="container">
+                <button class="button" id="openFirstModalBtn">♡</button>
+                <button class="button" id="openSecondModalBtn">♡</button>
+            </div>
+
+            <div id="letterModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModalBtn">&times;</span>
+                    <div id="letterContent" class="letter-content">
+                        <!-- Letter content will be injected here -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <footer>
+        &copy; 2024 Avery Cuteperson
+    </footer>
+
     <script>
-        // Get the modal and elements
+        function openTab(tabId) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";  
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            document.getElementById(tabId).style.display = "block";  
+            document.querySelector(`button[onclick="openTab('${tabId}')"]`).className += " active";
+        }
+
+        // Modal logic
         var modal = document.getElementById("letterModal");
         var closeBtn = document.getElementById("closeModalBtn");
         var letterContent = document.getElementById("letterContent");
 
-        // Functions to open modal with different content
         function openModal(content) {
             letterContent.innerHTML = content;
             modal.style.display = "block";
@@ -172,24 +181,16 @@
         document.getElementById("openFirstModalBtn").onclick = function() {
             openModal(`
                 <h2>Remi,</h2>
-                <p>
-                    I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do, I hope to always be the same patience and support that you have been for me. 我爱你 amar jaan <3
-                </p>
-                <p>
-                    With all my love :)
-                </p>
+                <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do, I hope to always be the same patience and support that you have been for me. 我爱你 amar jaan <3</p>
+                <p>With all my love :)</p>
             `);
         }
 
         document.getElementById("openSecondModalBtn").onclick = function() {
             openModal(`
                 <h2>罗行健</h2>
-                <p>
-                    我遇见你，是最美丽的意外
-                </p>
-                <p>
-                    天娆
-                </p>
+                <p>我遇见你，是最美丽的意外</p>
+                <p>天娆</p>
             `);
         }
 
@@ -204,6 +205,4 @@
         }
     </script>
 </body>
-</html>
-
 </html>
