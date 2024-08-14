@@ -1,26 +1,35 @@
+/* Existing CSS rules */
 p {
     color: #9d6cd9;
 }
 
-/* Additional CSS rules */
 body {
-  background-color: #FFA07A;
-  text-align: center;
+    background-color: #FFA07A;
+    text-align: center;
 }
 
 h1 {
-  font-size: 24px;
-  color: white;
+    font-size: 24px;
+    color: white;
 }
 
 .text {
-  color: #A369A2;
+    color: #A369A2;
 }
 
 #smiley {
-  width: 300px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* New CSS rules for h2 and h3 */
+h2 {
+    color: #C5D0E4; /* Periwinkle color */
+}
+
+h3 {
+    color: #FA8072; /* Salmon color */
 }
