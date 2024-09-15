@@ -216,4 +216,13 @@
 
             if (passwordInput === correctPassword) {
                 message.textContent = 'Correct password!';
-                bdayContent.style.display = 'block
+                bdayContent.style.display = 'block';
+            } else {
+                message.textContent = 'Incorrect password!';
+                bdayContent.style.display = 'none';
+            }
+        }
+
+        // Modal functionality
+        document.getElementById('openFirstModalBtn').onclick = function() {
+            document.getElementById('letter
