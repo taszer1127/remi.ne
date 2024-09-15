@@ -189,7 +189,7 @@
     </footer>
 
     <script>
-        const correctPassword = 'I<3remiruhiluoalam'; 
+        const correctPassword = 'I<3remiruhiluoalam';
 
         function openTab(tabId) {
             var i, tabcontent, tabbuttons;
@@ -203,6 +203,21 @@
             }
             document.getElementById(tabId).style.display = "block";  
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).className += " active";
+
+            // Handle the visibility of the 'bday' tab content
+            if (tabId === 'bday') {
+                const passwordContainer = document.getElementById('bdayPasswordContainer');
+                const bdayContent = document.getElementById('bdayContent');
+                const passwordInput = document.getElementById('bdayPassword').value;
+
+                if (passwordInput === correctPassword) {
+                    passwordContainer.style.display = 'none';
+                    bdayContent.style.display = 'block';
+                } else {
+                    passwordContainer.style.display = 'block';
+                    bdayContent.style.display = 'none';
+                }
+            }
         }
 
         function unlockBdayTab() {
@@ -215,23 +230,8 @@
                 passwordContainer.style.display = 'none';
                 bdayContent.style.display = 'block';
                 message.textContent = '';
+                openTab('bday'); // Ensure the tab opens correctly
             } else {
                 message.textContent = 'Incorrect password. Please try again.';
             }
         }
-
-        // Modal logic
-        var modal = document.getElementById("letterModal");
-        var closeBtn = document.getElementById("closeModalBtn");
-        var letterContent = document.getElementById("letterContent");
-
-        function openModal(content) {
-            letterContent.innerHTML = content;
-            modal.style.display = "block";
-        }
-
-        document.getElementById("openFirstModalBtn").onclick = function() {
-            openModal(`
-                <h2>Remi</h2>
-<h2>(english)</h2>
-                <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do, I hope to always be the same patience and support that you have been for me. 我爱
