@@ -179,7 +179,7 @@
             </div>
             <div id="bdayContent" style="display: none;">
                 <h2>Happy Birthday!</h2>
-                <p>Surprise! Hope you have an amazing day! This is your birthday message and card. You're officially 24 and one more year away from your offical quarter life crisis woooo.... unless ig this already counts. Anyway, you're old. I guess not that old cause then weewoo weewoo. But okay enough jokes. Honestly, my message will probablybe the same every year that I wish you the upmost happiness and each year is only full of more joy, wisdom, fond memories and excitement for the future. I can't wait to spend the next year and every year after that. Just journeying through this crazy thing we call life and doing it together. WGTM! Because with you, there's always love and with love comes so many wonderful things my dear. We'll see it and get it all <3</p>
+                <p>Surprise! Hope you have an amazing day! This is your birthday message and card. You're officially 24 and one more year away from your official quarter life crisis woooo.... unless ig this already counts. Anyway, you're old. I guess not that old cause then weewoo weewoo. But okay enough jokes. Honestly, my message will probably be the same every year that I wish you the utmost happiness and each year is only full of more joy, wisdom, fond memories and excitement for the future. I can't wait to spend the next year and every year after that. Just journeying through this crazy thing we call life and doing it together. WGTM! Because with you, there's always love and with love comes so many wonderful things my dear. We'll see it and get it all <3</p>
             </div>
         </div>
     </div>
@@ -194,44 +194,32 @@
         function openTab(tabId) {
             var i, tabcontent, tabbuttons;
             tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";  
-            }
             tabbuttons = document.getElementsByClassName("tab-button");
+
+            // Hide all tab content and remove 'active' class from all tab buttons
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
             for (i = 0; i < tabbuttons.length; i++) {
                 tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
             }
-            document.getElementById(tabId).style.display = "block";  
+
+            // Display the selected tab content and add 'active' class to the clicked button
+            document.getElementById(tabId).style.display = "block";
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).className += " active";
 
             // Handle the visibility of the 'bday' tab content
             if (tabId === 'bday') {
                 const passwordContainer = document.getElementById('bdayPasswordContainer');
                 const bdayContent = document.getElementById('bdayContent');
-                const passwordInput = document.getElementById('bdayPassword').value;
 
-                if (passwordInput === correctPassword) {
-                    passwordContainer.style.display = 'none';
-                    bdayContent.style.display = 'block';
-                } else {
-                    passwordContainer.style.display = 'block';
-                    bdayContent.style.display = 'none';
-                }
+                // Show the password container and hide the content initially
+                passwordContainer.style.display = 'block';
+                bdayContent.style.display = 'none';
             }
         }
 
         function unlockBdayTab() {
             const passwordInput = document.getElementById('bdayPassword').value;
             const message = document.getElementById('bdayMessage');
-            const bdayContent = document.getElementById('bdayContent');
-            const passwordContainer = document.getElementById('bdayPasswordContainer');
-
-            if (passwordInput === correctPassword) {
-                passwordContainer.style.display = 'none';
-                bdayContent.style.display = 'block';
-                message.textContent = '';
-                openTab('bday'); // Ensure the tab opens correctly
-            } else {
-                message.textContent = 'Incorrect password. Please try again.';
-            }
-        }
+            const bdayContent = document.getElementBy
