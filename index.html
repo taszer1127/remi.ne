@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Title of webpage in the browser -->
-    <title>Remi</title>
     <meta charset="UTF-8">
+    <title>Remi</title>
     <link rel="stylesheet" href="web.css"/>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -125,7 +123,6 @@
 </head>
 <body>
     <div class="tab-container">
-        <!-- Tab Navigation -->
         <div class="tabs">
             <button class="tab-button active" onclick="openTab('tab1')">Home</button>
             <button class="tab-button" onclick="openTab('tab2')">Love Letter</button>
@@ -133,7 +130,6 @@
             <button class="tab-button" onclick="openTab('bday')">Bday</button>
         </div>
 
-        <!-- Tab Contents -->
         <div id="tab1" class="tab-content active">
             <h3>averycuteperson.com</h3>
             <p><span class="text">I have no idea what I'm doing, </span> but I'm going to learn now :)</p>
@@ -192,24 +188,19 @@
         const correctPassword = 'I<3remiruhiluoalam';
 
         function openTab(tabId) {
-            var i, tabcontent, tabbuttons;
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-            // Hide all tab content and remove 'active' class from all tab buttons
-            tabcontent = document.getElementsByClassName("tab-content");
-            tabbuttons = document.getElementsByClassName("tab-button");
-            
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].classList.remove("active");
-            }
+            // Remove 'active' class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
 
-            // Display the selected tab content and add 'active' class to the clicked button
-            document.getElementById(tabId).classList.add("active");
-            document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add("active");
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
 
-            // Handle the visibility of the 'bday' tab content
+            // Add 'active' class to the clicked tab button
+            document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
+
+            // Special handling for 'bday' tab
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
                 document.getElementById('bdayContent').style.display = 'none';
@@ -219,4 +210,10 @@
         }
 
         function unlockBdayTab() {
-            const passwordInput = document.getElementBy
+            const passwordInput = document.getElementById('bdayPassword').value;
+            const message = document.getElementById('bdayMessage');
+            const bdayContent = document.getElementById('bdayContent');
+
+            if (passwordInput === correctPassword) {
+                message.textContent = 'Correct password!';
+                bdayContent.style.display = 'block
