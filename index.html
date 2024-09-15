@@ -193,33 +193,35 @@
 
         function openTab(tabId) {
             var i, tabcontent, tabbuttons;
-            tabcontent = document.getElementsByClassName("tab-content");
-            tabbuttons = document.getElementsByClassName("tab-button");
 
             // Hide all tab content and remove 'active' class from all tab buttons
+            tabcontent = document.getElementsByClassName("tab-content");
+            tabbuttons = document.getElementsByClassName("tab-button");
+            
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
             for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+                tabbuttons[i].classList.remove("active");
             }
 
             // Display the selected tab content and add 'active' class to the clicked button
             document.getElementById(tabId).style.display = "block";
-            document.querySelector(`button[onclick="openTab('${tabId}')"]`).className += " active";
+            document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add("active");
 
             // Handle the visibility of the 'bday' tab content
             if (tabId === 'bday') {
-                const passwordContainer = document.getElementById('bdayPasswordContainer');
-                const bdayContent = document.getElementById('bdayContent');
-
-                // Show the password container and hide the content initially
-                passwordContainer.style.display = 'block';
-                bdayContent.style.display = 'none';
+                document.getElementById('bdayPasswordContainer').style.display = 'block';
+                document.getElementById('bdayContent').style.display = 'none';
             }
         }
 
         function unlockBdayTab() {
             const passwordInput = document.getElementById('bdayPassword').value;
             const message = document.getElementById('bdayMessage');
-            const bdayContent = document.getElementBy
+            const bdayContent = document.getElementById('bdayContent');
+
+            if (passwordInput === correctPassword) {
+                message.textContent = '';
+                bdayContent.style.display = 'block';
+                document.getElementById
