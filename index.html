@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Remi</title>
-    <link rel="stylesheet" href="web.css"> <!-- Ensure this path is correct -->
+    <link rel="stylesheet" href="web.css">
     <style>
         .tab-content {
             display: none;
@@ -41,6 +41,18 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
+        }
+        /* Cat animation */
+        #cat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px; /* Adjust size as needed */
+            animation: jump 1s infinite alternate;
+        }
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
         }
     </style>
 </head>
@@ -94,7 +106,7 @@
             <div id="bdayContent" style="display: none;">
                 <h2>Happy Birthday!</h2>
                 <p>Surprise! Hope you have an amazing day! This is your birthday message and card. You're officially 24 and one more year away from your official quarter-life crisis woooo.... unless this already counts. Anyway, you're old. I guess not that old cause then weewoo weewoo. But okay enough jokes. Honestly, my message will probably be the same every year and that is...</p>
-                <p>I wish you the utmost happiness and that I hope each year is only full of more joy, wisdom, fond memories, and excitement for the future. I can't wait to spend the next year and every year after that with you. Just journeying through this crazy thing we call life and doing it together. WGTM! Because with you, there's always love and with love comes so many wonderful things my dear. We'll see it and get it all <3</p>
+                <p>I wish you the utmost happiness and that I hope each year is only full of more joy, wisdom, fond memories, and excitement for the future. I can't wait to spend the next year and every year after that with you. Just journeying through this crazy thing we call life and doing it together. WGMI! Because with you, there's always love and with love comes so many wonderful things my dear. We'll see it and get it all <3</p>
                 <p>May this year bring you happiness and love!</p>
             </div>
         </div>
@@ -103,6 +115,9 @@
     <footer>
         a very cute person &copy; 2024
     </footer>
+
+    <!-- Cat image -->
+    <img id="cat" src="https://example.com/cat.gif" alt="Cute cat" /> <!-- Replace with your cat GIF URL -->
 
     <script>
         const correctPassword = 'I<3remiruhiluoalam';
@@ -170,20 +185,4 @@
             `);
         };
 
-        function openModal(content) {
-            document.getElementById("modalBody").innerHTML = content;
-            document.getElementById("letterModal").style.display = "block";
-        }
-
-        document.getElementById("closeModalBtn").onclick = function() {
-            document.getElementById("letterModal").style.display = "none";
-        };
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById("letterModal")) {
-                document.getElementById("letterModal").style.display = "none";
-            }
-        };
-    </script>
-</body>
-</html>
+        function openModal(content)
