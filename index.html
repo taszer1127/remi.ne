@@ -85,29 +85,16 @@
 
         <div id="tab1" class="tab-content active">
             <h3>averycuteperson.com</h3>
-            <p><span class="text">I have no idea what I'm doing, </span> but I'm going to learn now :)</p>
-            <img id="smiley" alt="Smiley face" src="https://assets.codepen.io/6093409/smiley-face.png">
+            <p>I have no idea what I'm doing, but I'm going to learn now :)</p>
         </div>
 
         <div id="tab2" class="tab-content">
-            <div class="container">
-                <h2>To My Remi</h2>
-                <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
-                <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
-                <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
-                <p>Always be happy, your smile is my greatest treasure dear.</p>
-                <p>With all my love,<br>Your Neemo</p>
-            </div>
+            <h2>To My Remi</h2>
+            <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
         </div>
 
         <div id="tab3" class="tab-content">
             <div class="in-every-language">In every language &lt;3</div>
-            <div class="container">
-                <button class="button" onclick="alert('Modal for first language');">♡</button>
-                <button class="button" onclick="alert('Modal for second language');">♡</button>
-                <button class="button" onclick="alert('Modal for third language');">♡</button>
-            </div>
-            <div class="more-to-come">More languages to come my love...</div>
         </div>
 
         <div id="bday" class="tab-content">
@@ -155,11 +142,11 @@
 
             if (passwordInput === correctPassword) {
                 message.textContent = 'Correct password!';
-                bdayContent.style.display = 'block';
+                bdayContent.style.display = 'block'; // Show the birthday content
                 openTab('bday'); // Automatically open the Bday tab
             } else {
                 message.textContent = 'Incorrect password!';
-                bdayContent.style.display = 'none';
+                bdayContent.style.display = 'none'; // Hide the birthday content
             }
         }
     </script>
