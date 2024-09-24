@@ -3,75 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Remi</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link your CSS file if external -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .tab-container {
-            width: 80%;
-            margin: 20px auto;
-        }
-        .tabs {
-            overflow: hidden;
-            background-color: #9d72e0;
-            text-align: center; /* Center the buttons */
-        }
-        .tabs button {
-            background-color: #bb8fce;
-            border: none;
-            outline: none;
-            padding: 14px 16px;
-            cursor: pointer;
-            font-size: 17px;
-            transition: background-color 0.3s;
-        }
-        .tabs button:hover {
-            background-color: #d96c75;
-        }
-        .tabs button.active {
-            background-color: #d96c75;
-            color: white;
-        }
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-top: none;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            font-size: 0.9em;
-            color: #666;
-            background-color: #9d72e0;
-        }
-        .password-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .password-input {
-            padding: 10px;
-            font-size: 16px;
-        }
-        .unlock-button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #d96c75;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
+        /* Include the updated CSS here */
     </style>
 </head>
 <body>
@@ -121,22 +55,18 @@
         const correctPassword = 'I<3remiruhiluoalam';
 
         function openTab(tabId) {
-            // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
                 content.style.display = 'none';
             });
 
-            // Remove 'active' class from all tab buttons
             document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
 
-            // Show the selected tab content
             const activeTab = document.getElementById(tabId);
             activeTab.classList.add('active');
             activeTab.style.display = 'block';
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
 
-            // Special handling for 'bday' tab
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
                 document.getElementById('bdayContent').style.display = 'none';
@@ -152,11 +82,11 @@
 
             if (passwordInput === correctPassword) {
                 message.textContent = 'Correct password!';
-                bdayContent.style.display = 'block'; // Show the birthday content
-                document.getElementById('bdayPasswordContainer').style.display = 'none'; // Hide the password input
+                bdayContent.style.display = 'block';
+                document.getElementById('bdayPasswordContainer').style.display = 'none';
             } else {
                 message.textContent = 'Incorrect password!';
-                bdayContent.style.display = 'none'; // Hide the birthday content
+                bdayContent.style.display = 'none';
             }
         }
     </script>
