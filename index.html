@@ -25,11 +25,13 @@
             <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
             <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
             <p>With you, I have found love...</p>
+            <p>You are my joy and my light.</p>
         </div>
 
         <div id="tab3" class="tab-content">
             <div class="in-every-language">In every language &lt;3</div>
             <p>More languages to come my love...</p>
+            <p>I will always find a way to express my feelings for you.</p>
         </div>
 
         <div id="bday" class="tab-content">
@@ -41,6 +43,7 @@
             <div id="bdayContent" style="display: none;">
                 <h2>Happy Birthday!</h2>
                 <p>Surprise! Hope you have an amazing day! This is your birthday message and card...</p>
+                <p>May this year bring you happiness and love!</p>
             </div>
         </div>
     </div>
@@ -53,18 +56,24 @@
         const correctPassword = 'I<3remiruhiluoalam';
 
         function openTab(tabId) {
+            // Hide all tab content
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
                 content.style.display = 'none';
             });
 
+            // Remove active class from all buttons
             document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
 
+            // Show the selected tab
             const activeTab = document.getElementById(tabId);
             activeTab.classList.add('active');
             activeTab.style.display = 'block';
+
+            // Mark the button as active
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
 
+            // Handle the birthday tab specifically
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
                 document.getElementById('bdayContent').style.display = 'none';
