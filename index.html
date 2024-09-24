@@ -17,6 +17,7 @@
         .tabs {
             overflow: hidden;
             background-color: #9d72e0;
+            text-align: center; /* Center the buttons */
         }
         .tabs button {
             background-color: #bb8fce;
@@ -123,7 +124,7 @@
             // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
-                content.style.display = 'none'; // Ensure display is set to none
+                content.style.display = 'none';
             });
 
             // Remove 'active' class from all tab buttons
@@ -132,13 +133,13 @@
             // Show the selected tab content
             const activeTab = document.getElementById(tabId);
             activeTab.classList.add('active');
-            activeTab.style.display = 'block'; // Set display to block for the active tab
+            activeTab.style.display = 'block';
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
 
             // Special handling for 'bday' tab
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
-                document.getElementById('bdayContent').style.display = 'none'; // Keep the birthday content hidden initially
+                document.getElementById('bdayContent').style.display = 'none';
             } else {
                 document.getElementById('bdayPasswordContainer').style.display = 'none';
             }
@@ -152,7 +153,7 @@
             if (passwordInput === correctPassword) {
                 message.textContent = 'Correct password!';
                 bdayContent.style.display = 'block'; // Show the birthday content
-                openTab('bday'); // Switch to the birthday tab
+                document.getElementById('bdayPasswordContainer').style.display = 'none'; // Hide the password input
             } else {
                 message.textContent = 'Incorrect password!';
                 bdayContent.style.display = 'none'; // Hide the birthday content
