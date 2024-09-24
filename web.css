@@ -4,7 +4,7 @@ p {
 }
 
 body {
-    background-color: #FFA07A;
+    background-color: white; /* Change background to white */
     text-align: center;
 }
 
@@ -34,8 +34,19 @@ h3 {
     color: #FA8072; /* Salmon color */
 }
 
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensures all tabs stretch to the same height */
+}
+
 .tab-content {
     display: none; /* Hide all tabs by default */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Optional: border for clarity */
+    flex-grow: 1; /* Allow content to grow */
+    min-height: 400px; /* Set a minimum height for uniformity */
 }
 
 .tab-content.active {
@@ -50,18 +61,17 @@ h3 {
     cursor: pointer;
     padding: 10px 20px;
     border: none;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #bc7de8; /* Set tab background color to match h2 */
+    color: white; /* Tab text color */
     transition: background-color 0.3s;
 }
 
 .tab-button.active {
-    background-color: #bc7de8; /* Active tab color */
-    color: white; /* Active tab text color */
+    background-color: #9b5bc7; /* Darker shade for active tab */
 }
 
 .tab-button:hover {
-    background-color: #ddd; /* Hover effect for buttons */
+    background-color: #a067d2; /* Hover effect for buttons */
 }
 
 .password-container {
