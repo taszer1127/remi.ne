@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Remi</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+    <link rel="stylesheet" href="web.css"> <!-- Ensure this path is correct -->
 </head>
 <body>
     <div class="tab-container">
@@ -29,9 +29,18 @@
         </div>
 
         <div id="tab3" class="tab-content">
-            <div class="in-every-language">In every language &lt;3</div>
-            <p>More languages to come my love...</p>
-            <p>I will always find a way to express my feelings for you.</p>
+            <button class="button" id="openFirstModalBtn">English</button>
+            <button class="button" id="openSecondModalBtn">中文</button>
+            <button class="button" id="openThirdModalBtn">Bangla</button>
+            <div class="more-to-come">More languages to come my love...</div>
+
+            <!-- Modal Structure -->
+            <div id="letterModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModalBtn">&times;</span>
+                    <div id="modalBody"></div>
+                </div>
+            </div>
         </div>
 
         <div id="bday" class="tab-content">
@@ -56,29 +65,22 @@
         const correctPassword = 'I<3remiruhiluoalam';
 
         function openTab(tabId) {
-            // Hide all tab content
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
                 content.style.display = 'none';
             });
-
-            // Remove active class from all buttons
             document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
-
-            // Show the selected tab
             const activeTab = document.getElementById(tabId);
             activeTab.classList.add('active');
             activeTab.style.display = 'block';
-
-            // Mark the button as active
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
 
-            // Handle the birthday tab specifically
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
                 document.getElementById('bdayContent').style.display = 'none';
             } else {
                 document.getElementById('bdayPasswordContainer').style.display = 'none';
+                document.getElementById('bdayContent').style.display = 'none';
             }
         }
 
@@ -96,6 +98,49 @@
                 bdayContent.style.display = 'none';
             }
         }
+
+        // Modal functionality
+        document.getElementById("openFirstModalBtn").onclick = function() {
+            openModal(`
+                <h2>Remi</h2>
+                <h2>(English)</h2>
+                <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do. I hope to always be the same patience and support that you have been for me. 我爱你 amar jaan.</p>
+                <p>Love you <3</p>
+            `);
+        };
+
+        document.getElementById("openSecondModalBtn").onclick = function() {
+            openModal(`
+                <h2>罗行健</h2>
+                <h2>(中文)</h2>
+                <p>我遇见你，是最美丽的意外</p>
+                <p>天娆</p>
+            `);
+        };
+
+        document.getElementById("openThirdModalBtn").onclick = function() {
+            openModal(`
+                <h2>Ruhi</h2>
+                <h2>(Bangla)</h2>
+                <p>Amar jaan. Tumi amar ar ami tumar. Ami tomare shob take bhalobhasi.</p>
+                <p>Amar bangla nam kita oibo ami zani na... anika? sabrine? na tasneem?</p>
+            `);
+        };
+
+        function openModal(content) {
+            document.getElementById("modalBody").innerHTML = content;
+            document.getElementById("letterModal").style.display = "block";
+        }
+
+        document.getElementById("closeModalBtn").onclick = function() {
+            document.getElementById("letterModal").style.display = "none";
+        };
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("letterModal")) {
+                document.getElementById("letterModal").style.display = "none";
+            }
+        };
     </script>
 </body>
 </html>
