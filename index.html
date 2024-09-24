@@ -42,15 +42,6 @@
             text-decoration: none;
             cursor: pointer;
         }
-        /* Floating Animation */
-        @keyframes float {
-            0% { transform: translatey(0); }
-            50% { transform: translatey(-10px); }
-            100% { transform: translatey(0); }
-        }
-        #bdayContent h2 {
-            animation: float 2s ease-in-out infinite;
-        }
     </style>
 </head>
 <body>
@@ -189,4 +180,10 @@
         };
 
         window.onclick = function(event) {
-            if (event.target == document.getElementById("letterModal"))
+            if (event.target == document.getElementById("letterModal")) {
+                document.getElementById("letterModal").style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>
