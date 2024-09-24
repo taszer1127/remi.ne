@@ -206,6 +206,7 @@
                 document.getElementById('bdayContent').style.display = 'none';
             } else {
                 document.getElementById('bdayPasswordContainer').style.display = 'none';
+                document.getElementById('bdayContent').style.display = 'none';
             }
         }
 
@@ -217,6 +218,7 @@
             if (passwordInput === correctPassword) {
                 message.textContent = 'Correct password!';
                 bdayContent.style.display = 'block';
+                openTab('bday'); // Automatically open the Bday tab
             } else {
                 message.textContent = 'Incorrect password!';
                 bdayContent.style.display = 'none';
