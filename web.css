@@ -1,11 +1,87 @@
-/* Existing CSS rules */
-p {
-    color: #9d6cd9;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFA07A; /* Updated background color */
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-    background-color: #FFA07A;
+.tab-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.tabs {
+    overflow: hidden;
+    background-color: #9d72e0;
     text-align: center;
+}
+
+.tabs button {
+    background-color: #bb8fce;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.3s;
+}
+
+.tabs button:hover {
+    background-color: #d96c75;
+}
+
+.tabs button.active {
+    background-color: #d96c75;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #9d72e0;
+}
+
+.password-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.password-input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.unlock-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #d96c75;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* New CSS rules */
+p {
+    color: #9d6cd9; /* Paragraph color */
 }
 
 h1 {
@@ -13,8 +89,16 @@ h1 {
     color: white;
 }
 
+h2 {
+    color: #bc7de8; /* Purple color */
+}
+
+h3 {
+    color: #FA8072; /* Salmon color */
+}
+
 .text {
-    color: #A369A2;
+    color: #A369A2; /* Additional text color */
 }
 
 #smiley {
@@ -23,13 +107,4 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     display: block;
-}
-
-/* New CSS rules for h2 and h3 */
-h2 {
-    color: #bc7de8; /* Purple color */
-}
-
-h3 {
-    color: #FA8072; /* Salmon color */
 }
