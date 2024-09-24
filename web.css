@@ -55,7 +55,7 @@ h3 {
 
 .tabs {
     margin-bottom: 20px; /* Space between tabs and content */
-    background-color: #FA8072; /* Set background color to match h3 */
+    background-color: #bc7de8; /* Set background color to match h2 */
     padding: 10px; /* Add padding for visual appeal */
     border-radius: 5px; /* Optional: rounded corners */
 }
@@ -64,7 +64,7 @@ h3 {
     cursor: pointer;
     padding: 10px 20px;
     border: none;
-    background-color: #bc7de8; /* Set tab background color to match h2 */
+    background-color: #FA8072; /* Set tab background color to match h3 */
     color: white; /* Tab text color */
     transition: background-color 0.3s;
 }
@@ -78,7 +78,7 @@ h3 {
 }
 
 footer {
-    background-color: #FA8072; /* Set footer background color to match h3 */
+    background-color: #bc7de8; /* Set footer background color to match h2 */
     color: white; /* Footer text color */
     padding: 10px; /* Add padding for spacing */
     position: relative; /* Ensures proper stacking */
