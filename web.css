@@ -107,6 +107,23 @@ footer {
     color: #bc7de8; /* Color for the "More languages" text */
 }
 
+/* New styles for the unlock button in the birthday tab */
+.unlock-button {
+    background-color: #FA8072; /* Same as tab color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 20px; /* Rounded corners for charm */
+    padding: 12px 24px; /* Increased padding for a nicer look */
+    margin-top: 10px; /* Space above the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.unlock-button:hover {
+    background-color: #bc7de8; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
 .password-container {
     margin-top: 20px;
 }
