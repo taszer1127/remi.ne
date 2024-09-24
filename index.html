@@ -150,9 +150,9 @@
         <div id="tab3" class="tab-content">
             <div class="in-every-language">In every language &lt;3</div>
             <div class="container">
-                <button class="button" id="openFirstModalBtn">♡</button>
-                <button class="button" id="openSecondModalBtn">♡</button>
-                <button class="button" id="openThirdModalBtn">♡</button>
+                <button class="button" onclick="openModal('first')">♡</button>
+                <button class="button" onclick="openModal('second')">♡</button>
+                <button class="button" onclick="openModal('third')">♡</button>
             </div>
 
             <div class="more-to-come">More languages to come my love...</div>
@@ -175,7 +175,7 @@
             </div>
             <div id="bdayContent" style="display: none;">
                 <h2>Happy Birthday!</h2>
-                <p>Surprise! Hope you have an amazing day! This is your birthday message and card. You're officially 24 and one more year away from your official quarter life crisis woooo.... unless ig this already counts. Anyway, you're old. I guess not that old cause then weewoo weewoo. But okay enough jokes. Honestly, my message will probably be the same every year that I wish you the utmost happiness and each year is only full of more joy, wisdom, fond memories and excitement for the future. I can't wait to spend the next year and every year after that. Just journeying through this crazy thing we call life and doing it together. WGTM! Because with you, there's always love and with love comes so many wonderful things my dear. We'll see it and get it all <3</p>
+                <p>Surprise! Hope you have an amazing day! This is your birthday message and card...</p>
             </div>
         </div>
     </div>
@@ -190,14 +190,10 @@
         function openTab(tabId) {
             // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-            // Remove 'active' class from all tab buttons
             document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
 
             // Show the selected tab content
             document.getElementById(tabId).classList.add('active');
-
-            // Add 'active' class to the clicked tab button
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
 
             // Special handling for 'bday' tab
@@ -206,7 +202,6 @@
                 document.getElementById('bdayContent').style.display = 'none';
             } else {
                 document.getElementById('bdayPasswordContainer').style.display = 'none';
-                document.getElementById('bdayContent').style.display = 'none';
             }
         }
 
@@ -224,3 +219,23 @@
                 bdayContent.style.display = 'none';
             }
         }
+
+        // Modal handling
+        const letterModal = document.getElementById('letterModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function openModal(type) {
+            let content = '';
+            if (type === 'first') {
+                content = 'Letter content for first modal...';
+            } else if (type === 'second') {
+                content = 'Letter content for second modal...';
+            } else if (type === 'third') {
+                content = 'Letter content for third modal...';
+            }
+            document.getElementById('letterContent').textContent = content;
+            letterModal.style.display = 'block';
+        }
+
+        closeModalBtn.onclick = function() {
+            letterModal.style.display =
