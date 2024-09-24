@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #FFA07A; /* Updated background color */
+    background-color: #FFA07A; /* Background color */
     text-align: center;
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ body {
 .tabs {
     overflow: hidden;
     background-color: #9d72e0;
-    text-align: center;
+    text-align: center; /* Center the buttons */
 }
 
 .tabs button {
@@ -79,7 +79,7 @@ footer {
     margin-top: 10px;
 }
 
-/* New CSS rules */
+/* Existing CSS rules */
 p {
     color: #9d6cd9; /* Paragraph color */
 }
