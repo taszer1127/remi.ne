@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Remi</title>
-    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="web.css"> <!-- Ensure this path is correct -->
     <style>
         .tab-content {
             display: none;
@@ -117,7 +117,7 @@
     </footer>
 
     <!-- Cat image -->
-    <img id="cat" src="https://example.com/cat.gif" alt="Cute cat" /> <!-- Replace with your cat GIF URL -->
+    <img id="cat" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute cat" /> <!-- Valid cat GIF URL -->
 
     <script>
         const correctPassword = 'I<3remiruhiluoalam';
@@ -185,4 +185,10 @@
             `);
         };
 
-        function openModal(content)
+        function openModal(content) {
+            document.getElementById('modalBody').innerHTML = content;
+            document.getElementById('letterModal').style.display = 'block';
+        }
+
+        document.getElementById("closeModalBtn").onclick = function() {
+            document.getElementById('letterModal').style.display = 'none';
