@@ -42,6 +42,15 @@
             text-decoration: none;
             cursor: pointer;
         }
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translatey(0); }
+            50% { transform: translatey(-10px); }
+            100% { transform: translatey(0); }
+        }
+        #bdayContent h2 {
+            animation: float 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -50,7 +59,7 @@
             <button class="tab-button active" onclick="openTab('tab1')">Home</button>
             <button class="tab-button" onclick="openTab('tab2')">Love Letter</button>
             <button class="tab-button" onclick="openTab('tab3')">Languages</button>
-            <button class="tab-button" onclick="openTab('bday')">Bday</button>
+            <button class="tab-button" onclick="openTab('bday')">Birthday</button>
         </div>
 
         <div id="tab1" class="tab-content active">
@@ -180,10 +189,4 @@
         };
 
         window.onclick = function(event) {
-            if (event.target == document.getElementById("letterModal")) {
-                document.getElementById("letterModal").style.display = "none";
-            }
-        };
-    </script>
-</body>
-</html>
+            if (event.target == document.getElementById("letterModal"))
