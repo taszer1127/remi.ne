@@ -55,6 +55,9 @@ h3 {
 
 .tabs {
     margin-bottom: 20px; /* Space between tabs and content */
+    background-color: #FA8072; /* Set background color to match h3 */
+    padding: 10px; /* Add padding for visual appeal */
+    border-radius: 5px; /* Optional: rounded corners */
 }
 
 .tab-button {
@@ -72,6 +75,15 @@ h3 {
 
 .tab-button:hover {
     background-color: #a067d2; /* Hover effect for buttons */
+}
+
+footer {
+    background-color: #FA8072; /* Set footer background color to match h3 */
+    color: white; /* Footer text color */
+    padding: 10px; /* Add padding for spacing */
+    position: relative; /* Ensures proper stacking */
+    bottom: 0;
+    width: 100%;
 }
 
 .password-container {
