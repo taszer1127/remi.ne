@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Remi</title>
-    <link rel="stylesheet" href="web.css"/>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,10 +90,13 @@
         <div id="tab2" class="tab-content">
             <h2>To My Remi</h2>
             <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
+            <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
+            <p>With you, I have found love...</p>
         </div>
 
         <div id="tab3" class="tab-content">
             <div class="in-every-language">In every language &lt;3</div>
+            <p>More languages to come my love...</p>
         </div>
 
         <div id="bday" class="tab-content">
@@ -119,17 +121,24 @@
 
         function openTab(tabId) {
             // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+                content.style.display = 'none'; // Ensure display is set to none
+            });
+
+            // Remove 'active' class from all tab buttons
             document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
 
             // Show the selected tab content
-            document.getElementById(tabId).classList.add('active');
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+            activeTab.style.display = 'block'; // Set display to block for the active tab
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
 
             // Special handling for 'bday' tab
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
-                document.getElementById('bdayContent').style.display = 'none';
+                document.getElementById('bdayContent').style.display = 'none'; // Keep the birthday content hidden initially
             } else {
                 document.getElementById('bdayPasswordContainer').style.display = 'none';
             }
@@ -143,7 +152,7 @@
             if (passwordInput === correctPassword) {
                 message.textContent = 'Correct password!';
                 bdayContent.style.display = 'block'; // Show the birthday content
-                openTab('bday'); // Switch to the Bday tab
+                openTab('bday'); // Switch to the birthday tab
             } else {
                 message.textContent = 'Incorrect password!';
                 bdayContent.style.display = 'none'; // Hide the birthday content
