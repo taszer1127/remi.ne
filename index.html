@@ -70,42 +70,40 @@
         </div>
 
         <div id="tab3" class="tab-content">
-            <button class="button" id="openFirstModalBtn" onclick="showLanguageMessage('englishMessage')">English</button>
-            <button class="button" id="openSecondModalBtn" onclick="showLanguageMessage('chineseMessage')">中文</button>
-            <button class="button" id="openThirdModalBtn" onclick="showLanguageMessage('bengaliMessage')">Bangla</button>
+            <button class="button" onclick="showLanguageMessage('englishMessage')">English</button>
+            <button class="button" onclick="showLanguageMessage('chineseMessage')">中文</button>
+            <button class="button" onclick="showLanguageMessage('bengaliMessage')">Bangla</button>
             <div class="more-to-come">More languages to come my love...</div>
 
             <div id="letterModal" class="modal">
                 <div class="modal-content">
-                    <span class="close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
                     <div id="modalBody"></div>
                 </div>
             </div>
         </div>
 
         <div id="bday" class="tab-content">
-            <div class="password-container" id="bdayPasswordContainer">
-                <input type="password" id="bdayPassword" class="password-input" placeholder="Enter password">
-                <button class="unlock-button" onclick="unlockBdayTab()">Unlock</button>
+            <div class="password-container">
+                <input type="password" id="bdayPassword" placeholder="Enter password">
+                <button onclick="unlockBdayTab()">Unlock</button>
                 <p id="bdayMessage"></p>
             </div>
             <div id="bdayContent" style="display: none;">
                 <h2>Happy Birthday!</h2>
-                <p>Surprise! Hope you have an amazing day! This is your birthday message and card. You're officially 24 and one more year away from your official quarter-life crisis woooo.... unless this already counts. Anyway, you're old. I guess not that old cause then weewoo weewoo. But okay enough jokes. Honestly, my message will probably be the same every year and that is...</p>
-                <p>I wish you the utmost happiness and that I hope each year is only full of more joy, wisdom, fond memories, and excitement for the future. I can't wait to spend the next year and every year after that with you. Just journeying through this crazy thing we call life and doing it together. WGMI! Because with you, there's always love and with love comes so many wonderful things my dear. We'll see it and get it all <3</p>
-                <p>May this year bring you happiness and love!</p>
+                <p>Surprise! Hope you have an amazing day! This is your birthday message and card...</p>
             </div>
         </div>
 
         <div id="message" class="tab-content">
-            <div class="password-container" id="messagePasswordContainer">
-                <input type="password" id="messagePassword" class="password-input" placeholder="Enter password">
-                <button class="unlock-button" onclick="unlockMessageTab()">Unlock</button>
+            <div class="password-container">
+                <input type="password" id="messagePassword" placeholder="Enter password">
+                <button onclick="unlockMessageTab()">Unlock</button>
                 <p id="messageResponse"></p>
             </div>
             <div id="messageContent" style="display: none;">
                 <p>Hi, dear.</p>
-                <p>I'm sorry if I say sorry a lot. Have a lot of IOUs, but it's because you really are sweet and I'm really proud of how much you've grown— how much we both grown. You really are my person that's always there for me and I hope I can also be there for you too. Thank you for being there for me and yes it's just us. I want to write and rewrite this life for both of us. We've both been through it and now we can do that but together. I'm sorry if I bring up bad things sometimes or say or ask things I shouldn't, you're really great for just putting up with that too. It's not me it's my just... idk. I have no excuse for it just that I have a silly brain with silly thoughts and I know better but at the same time the demons make me question that especially a lot more than they've done before these days. They've gotten a lot stronger in the past few years and even more now so I'm constantly still fighting them off. Thank you for being there to hold my hand as I do, one day I hope to beat them and we can be at peace and happy. Or I just want to see you happy. I can live with just seeing that. I love you. <br>- neemo</p>
+                <p>I'm sorry if I say sorry a lot...</p>
             </div>
         </div>
     </div>
@@ -121,7 +119,7 @@
         const englishMessage = `
             <h2>Remi</h2>
             <h2>(English)</h2>
-            <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do. I hope to always be the same patience and support that you have been for me. 我爱你 amar jaan.</p>
+            <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do. 我爱你 amar jaan.</p>
             <p>Love you <3</p>
         `;
         
@@ -136,7 +134,6 @@
             <h2>Ruhi</h2>
             <h2>(Bangla)</h2>
             <p>Amar jaan. Tumi amar ar ami tumar. Ami tomare shob take bhalobhasi.</p>
-            <p>Amar bangla nam kita oibo ami zani na... anika? sabrine? na tasneem?</p>
         `;
 
         function openTab(tabId) {
@@ -150,10 +147,37 @@
             activeTab.classList.add('active');
             activeTab.style.display = 'block';
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
+        }
 
-            if (tabId === 'bday') {
-                document.getElementById('bdayPasswordContainer').style.display = 'block';
-                document.getElementById('bdayContent').style.display = 'none';
-            } else if (tabId === 'message') {
-                document.getElementById('messagePasswordContainer').style.display = 'block';
-                document.getElementById('messageContent').style.display = 'none';
+        function showLanguageMessage(language) {
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = eval(language);
+            document.getElementById('letterModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('letterModal').style.display = 'none';
+        }
+
+        function unlockBdayTab() {
+            const password = document.getElementById('bdayPassword').value;
+            if (password === correctPassword) {
+                document.getElementById('bdayMessage').innerText = '';
+                document.getElementById('bdayContent').style.display = 'block';
+            } else {
+                document.getElementById('bdayMessage').innerText = 'Incorrect password!';
+            }
+        }
+
+        function unlockMessageTab() {
+            const password = document.getElementById('messagePassword').value;
+            if (password === messagePassword) {
+                document.getElementById('messageResponse').innerText = '';
+                document.getElementById('messageContent').style.display = 'block';
+            } else {
+                document.getElementById('messageResponse').innerText = 'Incorrect password!';
+            }
+        }
+    </script>
+</body>
+</html>
