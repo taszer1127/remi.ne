@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Notes</title>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
         .notes-container {
             display: flex;
             flex-wrap: wrap;
@@ -15,22 +22,46 @@
         .post-it {
             width: 120px;
             height: 120px;
-            background-color: #bc7de8; /* Change this to match your tab color */
-            border: 1px solid #9b5bc7; /* Darker shade for border */
+            background-color: #bc7de8;
+            border: 1px solid #9b5bc7;
             border-radius: 10px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            font-family: 'Arial', sans-serif;
+            perspective: 1000px;
+        }
+
+        .post-it-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .post-it-front, .post-it-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             font-size: 14px;
-            color: white; /* Optional: Change text color for contrast */
+            color: white;
+            border-radius: 10px;
         }
 
-        .post-it p {
-            margin: 0;
+        .post-it-front {
+            background-color: #bc7de8;
+        }
+
+        .post-it-back {
+            background-color: #9b5bc7;
+            transform: rotateY(180deg);
+        }
+
+        .post-it:hover .post-it-inner {
+            transform: rotateY(180deg);
         }
     </style>
 </head>
@@ -38,31 +69,94 @@
     <h3>Notes</h3>
     <div class="notes-container">
         <div class="post-it">
-            <p>I love you <3</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>I love you <3</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>Remember to be healthy and happy dear!</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>Remember to be healthy and happy dear!</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>Remember to get a goodnight of sleep.</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>Remember to get a goodnight of sleep.</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>Make those doctor's appointment!</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>Make those doctor's appointments!</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>Read the books you got and tell me all about it :)</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>Read the books you got and tell me all about it :)</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>We should go explore Chinatown!</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>We should go explore Chinatown!</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>Remember to keep thing clear and clean in the apartment.</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>Remember to keep things clear and clean in the apartment.</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>Practice guitar. - whoops that's a note for me how'd that get in there :o</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>Practice guitar. - whoops that's a note for me how'd that get in there :o</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
         <div class="post-it">
-            <p>Keep writing in your journal <3</p>
+            <div class="post-it-inner">
+                <div class="post-it-front">
+                    <p>Keep writing in your journal <3</p>
+                </div>
+                <div class="post-it-back">
+                    <p>♡</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
