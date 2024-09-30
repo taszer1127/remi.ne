@@ -51,6 +51,7 @@
             <button class="tab-button" onclick="openTab('tab2')">Love Letter</button>
             <button class="tab-button" onclick="openTab('tab3')">Languages</button>
             <button class="tab-button" onclick="openTab('bday')">Birthday</button>
+            <button class="tab-button" onclick="openTab('message')">Reminder</button> <!-- New tab button -->
         </div>
 
         <div id="tab1" class="tab-content active">
@@ -98,6 +99,18 @@
                 <p>May this year bring you happiness and love!</p>
             </div>
         </div>
+
+        <div id="message" class="tab-content"> <!-- New message tab -->
+            <div class="password-container" id="messagePasswordContainer">
+                <input type="password" id="messagePassword" class="password-input" placeholder="Enter password">
+                <button class="unlock-button" onclick="unlockMessageTab()">Unlock</button>
+                <p id="messageResponse"></p>
+            </div>
+            <div id="messageContent" style="display: none;">
+                <p>Hi, dear.</p>
+<p>I'm sorry if I say sorry a lot. Have a lot of IOUs, but it's because you really are sweet and I'm really proud of how much you've grown— how much we both grown. You really are my person that's always there for me and I hope I can also be there for you too. Thank you for being there for me and yes it's just us. I want to write and rewrite this life for both of us too. We've both been through it and now we can do that but together. I'm sorry if I bring up bad things sometimes or say or ask things I shouldn't, you're really great for just putting up with that too. It's not me it's my just... idk. I have no excuse for it just that I have a silly brain with silly thoughts and I know better but at the same time the demons make me question that especially a lot more than they've done before these days. They've gotten a lot stronger in the past few years and even more now so I'm constantly still fighting them off. Thank you for being there to hold my hand as I do, one day I hope to beat them and we can be at peace and happy. Or I just want to see you happy. I can live with just seeing that. I love you. <br>- neemo</p>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -106,6 +119,29 @@
 
     <script>
         const correctPassword = 'I<3remiruhiluoalam';
+        const messagePassword = 'blossom'; // Password for the new message tab
+
+        // Language messages
+        const englishMessage = `
+            <h2>Remi</h2>
+            <h2>(English)</h2>
+            <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do. I hope to always be the same patience and support that you have been for me. 我爱你 amar jaan.</p>
+            <p>Love you <3</p>
+        `;
+        
+        const chineseMessage = `
+            <h2>罗行健</h2>
+            <h2>(中文)</h2>
+            <p>我遇见你，是最美丽的意外</p>
+            <p>天娆</p>
+        `;
+        
+        const bengaliMessage = `
+            <h2>Ruhi</h2>
+            <h2>(Bangla)</h2>
+            <p>Amar jaan. Tumi amar ar ami tumar. Ami tomare shob take bhalobhasi.</p>
+            <p>Amar bangla nam kita oibo ami zani na... anika? sabrine? na tasneem?</p>
+        `;
 
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(content => {
@@ -121,69 +157,5 @@
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
                 document.getElementById('bdayContent').style.display = 'none';
-            } else {
-                document.getElementById('bdayPasswordContainer').style.display = 'none';
-                document.getElementById('bdayContent').style.display = 'none';
-            }
-        }
-
-        function unlockBdayTab() {
-            const passwordInput = document.getElementById('bdayPassword').value;
-            const message = document.getElementById('bdayMessage');
-            const bdayContent = document.getElementById('bdayContent');
-
-            if (passwordInput === correctPassword) {
-                message.textContent = 'Correct password!';
-                bdayContent.style.display = 'block';
-                document.getElementById('bdayPasswordContainer').style.display = 'none';
-            } else {
-                message.textContent = 'Incorrect password!';
-                bdayContent.style.display = 'none';
-            }
-        }
-
-        // Modal functionality for languages
-        document.getElementById("openFirstModalBtn").onclick = function() {
-            openModal(`
-                <h2>Remi</h2>
-                <h2>(English)</h2>
-                <p>I wanted to take a moment to express how much you mean to me. Thank you for all that you do and will do. I hope to always be the same patience and support that you have been for me. 我爱你 amar jaan.</p>
-                <p>Love you <3</p>
-            `);
-        };
-
-        document.getElementById("openSecondModalBtn").onclick = function() {
-            openModal(`
-                <h2>罗行健</h2>
-                <h2>(中文)</h2>
-                <p>我遇见你，是最美丽的意外</p>
-                <p>天娆</p>
-            `);
-        };
-
-        document.getElementById("openThirdModalBtn").onclick = function() {
-            openModal(`
-                <h2>Ruhi</h2>
-                <h2>(Bangla)</h2>
-                <p>Amar jaan. Tumi amar ar ami tumar. Ami tomare shob take bhalobhasi.</p>
-                <p>Amar bangla nam kita oibo ami zani na... anika? sabrine? na tasneem?</p>
-            `);
-        };
-
-        function openModal(content) {
-            document.getElementById("modalBody").innerHTML = content;
-            document.getElementById("letterModal").style.display = "block";
-        }
-
-        document.getElementById("closeModalBtn").onclick = function() {
-            document.getElementById("letterModal").style.display = "none";
-        };
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById("letterModal")) {
-                document.getElementById("letterModal").style.display = "none";
-            }
-        };
-    </script>
-</body>
-</html>
+            } else if (tabId === 'message') {
+                document.getElementById('message
