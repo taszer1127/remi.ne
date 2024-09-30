@@ -12,23 +12,22 @@
             display: block;
         }
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            background-color: rgba(0,0,0,0.4);
         }
         .modal-content {
             background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
-            max-width: 400px; /* Max width for small window */
+            width: 80%;
+            max-width: 400px;
         }
         .close {
             color: #aaa;
@@ -39,7 +38,6 @@
         .close:hover,
         .close:focus {
             color: black;
-            text-decoration: none;
             cursor: pointer;
         }
     </style>
@@ -77,7 +75,6 @@
             <button class="button" id="openThirdModalBtn" onclick="showLanguageMessage('bengaliMessage')">Bangla</button>
             <div class="more-to-come">More languages to come my love...</div>
 
-            <!-- Modal Structure -->
             <div id="letterModal" class="modal">
                 <div class="modal-content">
                     <span class="close" id="closeModalBtn" onclick="closeModal()">&times;</span>
@@ -157,4 +154,6 @@
             if (tabId === 'bday') {
                 document.getElementById('bdayPasswordContainer').style.display = 'block';
                 document.getElementById('bdayContent').style.display = 'none';
-            } else if
+            } else if (tabId === 'message') {
+                document.getElementById('messagePasswordContainer').style.display = 'block';
+                document.getElementById('messageContent').style.display = 'none';
