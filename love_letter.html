@@ -11,6 +11,7 @@
             height: 100vh;
             background-color: #f0f0f0;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         .wrapper {
@@ -18,19 +19,20 @@
             width: 400px;
             height: 250px;
             cursor: pointer;
-            perspective: 1000px;
         }
 
         .envelope {
-            position: absolute;
             width: 100%;
             height: 100%;
             background: #C4DFF0;
             border: 2px solid #aaa;
             border-radius: 10px;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: transform 0.6s;
-            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
         }
 
         .lid {
@@ -41,10 +43,11 @@
             border-radius: 10px;
             backface-visibility: hidden;
             transition: transform 0.6s;
+            z-index: 1;
         }
 
         .lid.front {
-            z-index: 1;
+            z-index: 2;
         }
 
         .lid.back {
@@ -64,6 +67,12 @@
             transition: transform 0.6s;
             backface-visibility: hidden;
             z-index: 0;
+            display: none; /* Initially hidden */
+        }
+
+        .letter.active {
+            display: block;
+            transform: translateY(0);
         }
 
         .letter h3 {
@@ -77,37 +86,54 @@
             color: #3B4049;
         }
 
-        .wrapper:hover .envelope {
-            transform: rotateX(180deg);
-        }
-
-        .wrapper:hover .letter {
-            transform: translateY(0);
+        .message {
+            display: none;
+            text-align: center;
+            font-size: 20px;
+            color: #3B4049;
         }
     </style>
 </head>
 <body>
-    <div class="wrapper" onclick="toggleEnvelope()">
+    <div class="wrapper" onclick="nextLetter()">
         <div class="envelope">
             <div class="lid front"></div>
             <div class="lid back"></div>
-        </div>
-        <div class="letter">
-            <h3>To My Remi</h3>
-            <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
-            <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
-            <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
-            <p>Always be happy, your smile is my greatest treasure dear.</p>
-            <p>With all my love, <br>Your Neemo</p>
+            <div class="letter active" id="letter1">
+                <h3>To My Remi</h3>
+                <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
+            </div>
+            <div class="letter" id="letter2">
+                <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
+            </div>
+            <div class="letter" id="letter3">
+                <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
+            </div>
+            <div class="letter" id="letter4">
+                <p>Always be happy, your smile is my greatest treasure dear.</p>
+            </div>
+            <div class="letter" id="letter5">
+                <p>With all my love, <br>Your Neemo</p>
+            </div>
         </div>
     </div>
 
     <script>
-        function toggleEnvelope() {
-            const envelope = document.querySelector('.envelope');
-            const letter = document.querySelector('.letter');
-            envelope.classList.toggle('open');
-            letter.classList.toggle('show');
+        let currentLetter = 0;
+        const letters = document.querySelectorAll('.letter');
+
+        function nextLetter() {
+            // Hide the current letter
+            letters[currentLetter].classList.remove('active');
+
+            // Move to the next letter
+            currentLetter++;
+            if (currentLetter < letters.length) {
+                letters[currentLetter].classList.add('active');
+            } else {
+                // Optionally reset or show a completion message
+                letters[letters.length - 1].innerHTML += '<p class="message">Thank you for reading!</p>';
+            }
         }
     </script>
 </body>
