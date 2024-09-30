@@ -15,63 +15,58 @@
 
         .wrapper {
             position: relative;
-            width: 350px;
-            height: 200px;
+            width: 400px;
+            height: 250px;
             cursor: pointer;
             perspective: 1000px;
         }
 
-        .lid {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background-color: #C4DFF0;
-            border-radius: 10px;
-            transition: transform 0.5s;
-            backface-visibility: hidden;
-        }
-
-        .lid.one {
-            border-top: 100px solid transparent;
-            border-left: 175px solid #a4d4f2;
-            border-right: 175px solid #C4DFF0;
-            z-index: 3;
-        }
-
-        .lid.two {
-            border-top: 100px solid transparent;
-            border-left: 175px solid #C4DFF0;
-            border-right: 175px solid #a4d4f2;
-            transform: rotateX(180deg);
-            z-index: 3;
-        }
-
         .envelope {
             position: absolute;
-            height: 100%;
             width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 2;
+            height: 100%;
+            background: #C4DFF0;
+            border: 2px solid #aaa;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .lid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #C4DFF0;
+            border-radius: 10px;
+            backface-visibility: hidden;
+            transition: transform 0.6s;
+        }
+
+        .lid.front {
+            z-index: 1;
+        }
+
+        .lid.back {
+            transform: rotateX(180deg);
         }
 
         .letter {
             position: absolute;
             top: 0;
-            width: 80%;
-            height: 80%;
+            width: 90%;
+            height: 90%;
             background-color: white;
-            border-radius: 15px;
-            z-index: 1;
-            transform: translateY(100%);
-            transition: transform 0.5s;
-            overflow: hidden;
+            border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-100%);
+            transition: transform 0.6s;
+            backface-visibility: hidden;
+            z-index: 0;
         }
 
         .letter h3 {
-            margin: 0;
             text-align: center;
             color: #3B4049;
         }
@@ -82,12 +77,8 @@
             color: #3B4049;
         }
 
-        .wrapper:hover .lid.one {
-            transform: rotateX(90deg);
-        }
-
-        .wrapper:hover .lid.two {
-            transform: rotateX(0deg);
+        .wrapper:hover .envelope {
+            transform: rotateX(180deg);
         }
 
         .wrapper:hover .letter {
@@ -96,10 +87,11 @@
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="lid one"></div>
-        <div class="lid two"></div>
-        <div class="envelope"></div>
+    <div class="wrapper" onclick="toggleEnvelope()">
+        <div class="envelope">
+            <div class="lid front"></div>
+            <div class="lid back"></div>
+        </div>
         <div class="letter">
             <h3>To My Remi</h3>
             <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
@@ -109,5 +101,14 @@
             <p>With all my love, <br>Your Neemo</p>
         </div>
     </div>
+
+    <script>
+        function toggleEnvelope() {
+            const envelope = document.querySelector('.envelope');
+            const letter = document.querySelector('.letter');
+            envelope.classList.toggle('open');
+            letter.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
