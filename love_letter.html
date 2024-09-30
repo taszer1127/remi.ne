@@ -4,72 +4,103 @@
     <meta charset="UTF-8">
     <title>Love Letter</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
         .envelope {
-            width: 200px;
+            width: 250px;
             height: 150px;
             background: #f3e8d4;
             border: 2px solid #aaa;
+            border-radius: 10px;
             position: relative;
-            margin: 20px auto;
             cursor: pointer;
-            transition: transform 0.5s;
+            perspective: 1000px;
         }
-        .envelope.open {
-            transform: translateY(-20px) rotateX(180deg);
+
+        .envelope-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
         }
-        .letter {
-            display: none;
-            background: #ffffff;
-            border: 1px solid #aaa;
-            padding: 10px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
+
+        .envelope.open .envelope-inner {
             transform: rotateX(180deg);
+        }
+
+        .envelope-front,
+        .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             backface-visibility: hidden;
+            border-radius: 10px;
         }
-        .letter.active {
-            display: block;
-            transform: rotateX(0);
+
+        .envelope-front {
+            background: #f3e8d4;
+            border: 2px solid #aaa;
         }
+
+        .envelope-back {
+            background: #fff;
+            transform: rotateX(180deg);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
         .close {
             color: #aaa;
             float: right;
             font-size: 18px;
             cursor: pointer;
         }
+
+        h3 {
+            margin: 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
-    <div class="envelope" onclick="openEnvelope()">
-        <div class="letter" id="letter">
-            <span class="close" onclick="closeEnvelope(event)">&times;</span>
-            <h3>To My Remi</h3>
-            <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
-            <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
-            <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
-            <p>Always be happy, your smile is my greatest treasure dear.</p>
-            <p>With all my love, <br>Your Neemo</p>
+    <div class="envelope" onclick="toggleEnvelope()">
+        <div class="envelope-inner">
+            <div class="envelope-front">
+                <h3>Envelope</h3>
+                <p>Click to open!</p>
+            </div>
+            <div class="envelope-back" id="letter">
+                <span class="close" onclick="closeEnvelope(event)">&times;</span>
+                <h3>To My Remi</h3>
+                <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
+                <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
+                <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
+                <p>Always be happy, your smile is my greatest treasure dear.</p>
+                <p>With all my love, <br>Your Neemo</p>
+            </div>
         </div>
     </div>
 
     <script>
-        function openEnvelope() {
+        function toggleEnvelope() {
             const envelope = document.querySelector('.envelope');
-            const letter = document.getElementById('letter');
             envelope.classList.toggle('open');
-            letter.classList.toggle('active');
         }
 
         function closeEnvelope(event) {
             event.stopPropagation(); // Prevent the envelope click event
             const envelope = document.querySelector('.envelope');
-            const letter = document.getElementById('letter');
             envelope.classList.remove('open');
-            letter.classList.remove('active');
         }
     </script>
 </body>
