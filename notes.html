@@ -3,14 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Notes</title>
+    <style>
+        .notes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .post-it {
+            width: 120px;
+            height: 120px;
+            background-color: #ffeb3b; /* Light yellow color */
+            border: 1px solid #fbc02d; /* Darker yellow border */
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .post-it p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <h3>Notes</h3>
-    <p>Here are my ideas for the notes section:</p>
-    <ul>
-        <li>Idea 1: Reflection on past experiences.</li>
-        <li>Idea 2: Future plans and aspirations.</li>
-        <li>Idea 3: Creative writing prompts.</li>
-    </ul>
+    <div class="notes-container">
+        <div class="post-it">
+            <p>Note 1: Remember to buy groceries.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 2: Call mom.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 3: Finish the project report.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 4: Schedule a doctor's appointment.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 5: Read that book.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 6: Plan weekend trip.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 7: Organize desk.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 8: Practice guitar.</p>
+        </div>
+        <div class="post-it">
+            <p>Note 9: Write in journal.</p>
+        </div>
+    </div>
 </body>
 </html>
