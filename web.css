@@ -1,14 +1,31 @@
+/* Existing CSS rules */
+p {
+    color: #9d6cd9;
+}
+
 body {
-    background-color: #f5f5f5; /* Soft background */
+    background-color: white; /* Change background to white */
     text-align: center;
-    font-family: 'Arial', sans-serif; /* Choose a charming font */
 }
 
 h1 {
-    font-size: 28px;
-    color: #6a0dad; /* A rich purple */
+    font-size: 24px;
+    color: white;
 }
 
+.text {
+    color: #A369A2;
+}
+
+#smiley {
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* New CSS rules for h2 and h3 */
 h2 {
     color: #bc7de8; /* Purple color */
 }
@@ -17,21 +34,19 @@ h3 {
     color: #FA8072; /* Salmon color */
 }
 
-p {
-    color: #333; /* Dark text for readability */
-}
-
 .tab-container {
-    margin: 20px auto;
-    max-width: 600px; /* Limit width for better readability */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensures all tabs stretch to the same height */
 }
 
 .tab-content {
     display: none; /* Hide all tabs by default */
     padding: 20px;
-    background: #fff; /* White background for content */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Optional: border for clarity */
+    flex-grow: 1; /* Allow content to grow */
+    min-height: 400px; /* Set a minimum height for uniformity */
 }
 
 .tab-content.active {
@@ -40,13 +55,75 @@ p {
 
 .tabs {
     margin-bottom: 20px; /* Space between tabs and content */
+    background-color: #bc7de8; /* Set background color to match h2 */
+    padding: 10px; /* Add padding for visual appeal */
+    border-radius: 5px; /* Optional: rounded corners */
 }
 
 .tab-button {
-    background: #bc7de8; /* Match with heading */
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 5px;
     cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    background-color: #FA8072; /* Set tab background color to match h3 */
+    color: white; /* Tab text color */
+    transition: background-color 0.3s;
+}
+
+.tab-button.active {
+    background-color: #9b5bc7; /* Darker shade for active tab */
+}
+
+.tab-button:hover {
+    background-color: #a067d2; /* Hover effect for buttons */
+}
+
+footer {
+    background-color: #bc7de8; /* Set footer background color to match h2 */
+    color: white; /* Footer text color */
+    padding: 10px; /* Add padding for spacing */
+    position: relative; /* Ensures proper stacking */
+    bottom: 0;
+    width: 100%;
+}
+
+/* New styles for the buttons in the ♡ tab */
+.button {
+    background-color: #FA8072; /* Same as tab color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 20px; /* Rounded corners for charm */
+    padding: 12px 24px; /* Increased padding for a nicer look */
+    margin: 10px; /* Space between buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.button:hover {
+    background-color: #bc7de8; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.more-to-come {
+    color: #bc7de8; /* Color for the "More languages" text */
+}
+
+/* New styles for the unlock button in the birthday tab */
+.unlock-button {
+    background-color: #FA8072; /* Same as tab color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 20px; /* Rounded corners for charm */
+    padding: 12px 24px; /* Increased padding for a nicer look */
+    margin-top: 10px; /* Space above the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.unlock-button:hover {
+    background-color: #bc7de8; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.password-container {
+    margin-top: 20px;
+}
