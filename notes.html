@@ -27,6 +27,7 @@
             border-radius: 10px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             perspective: 1000px;
+            cursor: pointer;
         }
 
         .post-it-inner {
@@ -60,7 +61,7 @@
             transform: rotateY(180deg);
         }
 
-        .post-it:hover .post-it-inner {
+        .flipped {
             transform: rotateY(180deg);
         }
     </style>
@@ -69,7 +70,7 @@
     <h3>Notes</h3>
     <div class="notes-container">
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>I love you <3</p>
                 </div>
@@ -79,7 +80,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>Remember to be healthy and happy dear!</p>
                 </div>
@@ -89,7 +90,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>Remember to get a goodnight of sleep.</p>
                 </div>
@@ -99,7 +100,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>Make those doctor's appointments!</p>
                 </div>
@@ -109,7 +110,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>Read the books you got and tell me all about it :)</p>
                 </div>
@@ -119,7 +120,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>We should go explore Chinatown!</p>
                 </div>
@@ -129,7 +130,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>Remember to keep things clear and clean in the apartment.</p>
                 </div>
@@ -139,7 +140,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>Practice guitar. - whoops that's a note for me how'd that get in there :o</p>
                 </div>
@@ -149,7 +150,7 @@
             </div>
         </div>
         <div class="post-it">
-            <div class="post-it-inner">
+            <div class="post-it-inner flipped">
                 <div class="post-it-front">
                     <p>Keep writing in your journal <3</p>
                 </div>
@@ -159,5 +160,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.post-it').forEach(postIt => {
+            postIt.addEventListener('click', () => {
+                const inner = postIt.querySelector('.post-it-inner');
+                inner.classList.toggle('flipped');
+            });
+        });
+    </script>
 </body>
 </html>
