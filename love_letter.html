@@ -4,18 +4,110 @@
     <meta charset="UTF-8">
     <title>Love Letter</title>
     <style>
-        <body>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 350px;
+            height: 200px;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .lid {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #C4DFF0;
+            border-radius: 10px;
+            transition: transform 0.5s;
+            backface-visibility: hidden;
+        }
+
+        .lid.one {
+            border-top: 100px solid transparent;
+            border-left: 175px solid #a4d4f2;
+            border-right: 175px solid #C4DFF0;
+            z-index: 3;
+        }
+
+        .lid.two {
+            border-top: 100px solid transparent;
+            border-left: 175px solid #C4DFF0;
+            border-right: 175px solid #a4d4f2;
+            transform: rotateX(180deg);
+            z-index: 3;
+        }
+
+        .envelope {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .letter {
+            position: absolute;
+            top: 0;
+            width: 80%;
+            height: 80%;
+            background-color: white;
+            border-radius: 15px;
+            z-index: 1;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+            overflow: hidden;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .letter h3 {
+            margin: 0;
+            text-align: center;
+            color: #3B4049;
+        }
+
+        .letter p {
+            text-align: center;
+            font-size: 18px;
+            color: #3B4049;
+        }
+
+        .wrapper:hover .lid.one {
+            transform: rotateX(90deg);
+        }
+
+        .wrapper:hover .lid.two {
+            transform: rotateX(0deg);
+        }
+
+        .wrapper:hover .letter {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
     <div class="wrapper">
-      <div class="lid one"></div>
-      <div class="lid two"></div>
-      <div class="envelope"></div>
-      <div class="letter">
-        <h3>To My Remi</h3>
-           <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
-                    <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
-                    <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
-                    <p>Always be happy, your smile is my greatest treasure dear.</p>
-                    <p>With all my love, <br>Your Neemo</p>
-      </div>
+        <div class="lid one"></div>
+        <div class="lid two"></div>
+        <div class="envelope"></div>
+        <div class="letter">
+            <h3>To My Remi</h3>
+            <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
+            <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
+            <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
+            <p>Always be happy, your smile is my greatest treasure dear.</p>
+            <p>With all my love, <br>Your Neemo</p>
+        </div>
     </div>
-  </body>
+</body>
+</html>
