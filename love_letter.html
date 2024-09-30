@@ -10,17 +10,19 @@
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
+            margin: 0;
         }
 
         .envelope {
-            width: 250px;
-            height: 150px;
+            width: 300px;
+            height: 200px;
             background: #f3e8d4;
             border: 2px solid #aaa;
             border-radius: 10px;
             position: relative;
             cursor: pointer;
             perspective: 1000px;
+            overflow: hidden;
         }
 
         .envelope-inner {
@@ -32,7 +34,7 @@
         }
 
         .envelope.open .envelope-inner {
-            transform: rotateX(180deg);
+            transform: rotateX(-180deg);
         }
 
         .envelope-front,
@@ -47,6 +49,11 @@
         .envelope-front {
             background: #f3e8d4;
             border: 2px solid #aaa;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
         .envelope-back {
@@ -70,6 +77,27 @@
         p {
             margin: 10px 0;
         }
+        
+        .letter {
+            display: none;
+            animation: slideIn 0.6s forwards;
+            transform: translateY(-20px);
+        }
+
+        .envelope.open .letter {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -79,14 +107,16 @@
                 <h3>Envelope</h3>
                 <p>Click to open!</p>
             </div>
-            <div class="envelope-back" id="letter">
+            <div class="envelope-back">
                 <span class="close" onclick="closeEnvelope(event)">&times;</span>
                 <h3>To My Remi</h3>
-                <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
-                <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
-                <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
-                <p>Always be happy, your smile is my greatest treasure dear.</p>
-                <p>With all my love, <br>Your Neemo</p>
+                <div class="letter" id="letter">
+                    <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
+                    <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
+                    <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
+                    <p>Always be happy, your smile is my greatest treasure dear.</p>
+                    <p>With all my love, <br>Your Neemo</p>
+                </div>
             </div>
         </div>
     </div>
