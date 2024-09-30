@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Page</title>
+    <link rel="stylesheet" href="splash.css">
+</head>
+<body>
+    <div class="splash-container">
+        <div class="journal-cover">
+            <h1>neemo <3 remi</h1>
+            <button id="openJournalBtn">Open Journal</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('openJournalBtn').addEventListener('click', function() {
+            document.querySelector('.journal-cover').classList.add('open');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500); // Adjust time for the animation
+        });
+    </script>
+</body>
+</html>
