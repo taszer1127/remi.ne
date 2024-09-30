@@ -1,0 +1,52 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Matches the web.css background */
+}
+
+.splash-container {
+    position: relative;
+    perspective: 1000px; /* Enables 3D perspective */
+}
+
+.journal-cover {
+    width: 300px;
+    height: 400px;
+    background-color: #FA8072; /* Matches tab color from web.css */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: transform 1.5s;
+    transform-origin: left; /* Pivot point for the book opening */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.journal-cover.open {
+    transform: rotateY(-180deg); /* Animation to simulate opening */
+}
+
+h1 {
+    font-size: 24px;
+    color: white; /* Matches existing h1 color */
+}
+
+button {
+    background-color: #bc7de8; /* Matches h2 color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9d6cd9; /* Darker shade for hover effect */
+}
