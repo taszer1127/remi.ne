@@ -1,6 +1,6 @@
 :root {
-  --primary: #fff; /* Background color of the letter */
-  --bg-color: rgb(5, 53, 61); /* Background color of the webpage */
+  --primary: #fff;
+  --bg-color: rgb(5, 53, 61);
   --bg-envelope-color: #f5edd1;
   --envelope-tab: #ecdeb8;
   --envelope-cover: #e6cfa7;
@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: var(--bg-color); /* Set body background color */
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,20 +62,20 @@ body {
 
 .envelope > .letter {
   position: absolute;
-  right: 0; /* Align letter to the right of the envelope */
-  bottom: 0; /* Start at the bottom of the envelope */
-  width: 100%; /* Full width to fit inside the envelope */
-  background: var(--bg-color); /* Match letter background to webpage */
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 80%;
+  background: var(--primary);
   text-align: center;
-  transition: all 1s ease-in-out; /* Smooth transition */
+  transition: all 1s ease-in-out;
   box-shadow: 0 0 5px var(--shadow-color);
-  padding: 10px; /* Adjust padding as needed */
-  transform: translateY(100%); /* Start below the envelope */
+  padding: 10px; /* Reduced padding for a more compact look */
 }
 
 .envelope > .letter > .text {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: var(--txt-color); /* Match text color to .text in web.css */
+  color: var(--txt-color); /* Set to match .text in web.css */
   text-align: left;
   font-size: 8px; /* Decreased font size */
   line-height: 1.2; /* Adjusted line height for better spacing */
@@ -128,8 +128,9 @@ body {
 }
 
 .flap > .envelope > .letter {
-  transform: translateY(0); /* Move letter up fully */
-  transition-delay: 0.5s; /* Adjust delay for smoother reveal */
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
 }
 
 .flap > .heart {
