@@ -64,18 +64,19 @@ body {
   position: absolute;
   right: 20%;
   bottom: 0;
-  width: 54%;
-  height: 80%;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
   background: var(--primary);
   text-align: center;
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; /* Smooth transition */
   box-shadow: 0 0 5px var(--shadow-color);
-  padding: 10px; /* Reduced padding for a more compact look */
+  padding: 10px; /* Adjust padding as needed */
+  transform: translateY(100%); /* Start below the envelope */
 }
 
 .envelope > .letter > .text {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: var(--txt-color); /* Set to match .text in web.css */
+  color: var(--txt-color); /* Match text color to .text in web.css */
   text-align: left;
   font-size: 8px; /* Decreased font size */
   line-height: 1.2; /* Adjusted line height for better spacing */
@@ -128,9 +129,8 @@ body {
 }
 
 .flap > .envelope > .letter {
-  bottom: 100px;
-  transform: scale(1.5);
-  transition-delay: 1s;
+  transform: translateY(-100%); /* Move letter up fully */
+  transition-delay: 0.5s; /* Adjust delay for smoother reveal */
 }
 
 .flap > .heart {
