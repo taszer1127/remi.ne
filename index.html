@@ -5,7 +5,6 @@
     <title>Remi</title>
     <link rel="stylesheet" href="web.css">
     <style>
-        /* Existing styles... */
         .modal {
             display: none;
             position: fixed;
@@ -40,6 +39,9 @@
         }
         .tab-content.active {
             display: block;
+        }
+        .tab-button.active {
+            background-color: #ddd; /* Active tab style */
         }
     </style>
 </head>
@@ -86,8 +88,6 @@
             </div>
             <div id="bdayContent" style="display: none;">
                 <h2>Happy Birthday!</h2>
-                <p>Surprise! Hope you have an amazing day! This is your birthday message and card. You're officially 24...</p>
-                <p>I wish you the utmost happiness and that I hope each year is only full of more joy...</p>
                 <p>Surprise! Hope you have an amazing day! This is your birthday message and card. You're officially 24 and one more year away from your official quarter-life crisis woooo.... unless this already counts. Anyway, you're old. I guess not that old cause then weewoo weewoo. But okay enough jokes. Honestly, my message will probably be the same every year and that is...</p>
                 <p>I wish you the utmost happiness and that I hope each year is only full of more joy, wisdom, fond memories, and excitement for the future. I can't wait to spend the next year and every year after that with you. Just journeying through this crazy thing we call life and doing it together. WGMI! Because with you, there's always love and with love comes so many wonderful things my dear. We'll see it and get it all <3</p>
                 <p>May this year bring you happiness and love!</p>
@@ -97,7 +97,7 @@
         <div id="message" class="tab-content">
             <div class="message-content">
                 <p>My love, from the moment my eyes saw you, I knew there was something special about you.</p>
-                <p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
+<p>Every day with you feels like I'm living in an RV because it's always an adventure yet I feel like I've never left home.</p>
                 <p>With you, I have found love which is the simplest yet most elaborate way I can express my feelings. You're the dream I never thought would come true but somehow did.</p>
             </div>
             <div class="password-container">
@@ -135,8 +135,8 @@
             <h2>罗行健</h2>
             <h2>(中文)</h2>
             <p>我遇见你，是最美丽的意外</p>
-            <p>我的心里只有你</p>
-            <p>我爱你</p>
+<p>我的心里只有你</p>
+<p>我爱你</p>
             <p>天娆</p>
         `;
 
@@ -145,7 +145,7 @@
             <h2>(Bangla)</h2>
             <p>Amar jaan. Tumi amar ar ami tumar. Ami tomare shob take bhalobhasi.</p>
             <p>Amar bangla nam kita oibo ami zani na... anika? sabrine? na tasneem?</p>
-            <p> ami zani! ami tomar ar tumi amar :)</p>
+<p> ami zani! ami tomar ar tumi amar :)</p>
         `;
 
         function openTab(tabId) {
@@ -161,4 +161,33 @@
 
         function showLanguageMessage(language) {
             const modalBody = document.getElementById('modalBody');
-            modalBody.innerHTML = eval
+            modalBody.innerHTML = eval(language);
+            document.getElementById('letterModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('letterModal').style.display = 'none';
+        }
+
+        function unlockBdayTab() {
+            const password = document.getElementById('bdayPassword').value;
+            if (password === correctPassword) {
+                document.getElementById('bdayMessage').innerText = '';
+                document.getElementById('bdayContent').style.display = 'block';
+            } else {
+                document.getElementById('bdayMessage').innerText = 'Incorrect password';
+            }
+        }
+
+        function unlockMessageTab() {
+            const password = document.getElementById('messagePassword').value;
+            if (password === messagePassword) {
+                document.getElementById('messageResponse').innerText = '';
+                document.getElementById('messageContent').style.display = 'block';
+            } else {
+                document.getElementById('messageResponse').innerText = 'Incorrect password';
+            }
+        }
+    </script>
+</body>
+</html>
