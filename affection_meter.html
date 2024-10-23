@@ -4,28 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Affection Meter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f9f9f9;
-        }
-        #meter {
-            width: 300px;
-        }
-        #message {
-            margin-top: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="web.css">
 </head>
 <body>
 
     <h1>Affection Meter</h1>
-    <input type="range" id="meter" min="0" max="100" value="50">
-    <div id="message">You have 50% affection for me!</div>
+    <input type="range" id="meter" min="0" max="100" value="50" class="tab-button"> <!-- Added class for styling -->
+    <div id="message" class="text">You have 50% affection for me!</div> <!-- Added class for styling -->
 
     <script>
         const meter = document.getElementById('meter');
