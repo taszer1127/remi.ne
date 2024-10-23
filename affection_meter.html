@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Affection Meter</title>
-    <link rel="stylesheet" href="web.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,7 +42,6 @@
             font-size: 1.5em;
             color: #ff1493;
             text-align: center;
-            transition: transform 0.3s;
         }
         @keyframes celebrate {
             0% { transform: scale(1); }
@@ -75,8 +73,8 @@
 <body>
 
     <h1>Affection Meter</h1>
-    <input type="range" id="meter" min="0" max="100" value="50" class="tab-button">
-    <div id="message" class="text">You reached 50% and the more you slide, the more the love grows, but I actually have a secret so keep sliding :)</div>
+    <input type="range" id="meter" min="0" max="100" value="50">
+    <div id="message">You have 50% affection for me!</div>
     <div id="hearts"></div>
 
     <script>
@@ -87,11 +85,10 @@
         const createHeart = () => {
             const heart = document.createElement('span');
             heart.className = 'heart';
-            heart.innerHTML = '❤️'; // Heart symbol
-            heart.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
             heartsContainer.appendChild(heart);
 
-            // Remove the heart after animation completes
             setTimeout(() => {
                 heart.remove();
             }, 1500);
@@ -104,19 +101,16 @@
             if (value == 50) {
                 specialMessage = "You reached 50% and the more you slide, the more the love grows, but I actually have a secret so keep sliding :)";
             } else if (value == 100) {
-                specialMessage = "You've reached the maximum affection! 100%! 💖. Okay, here's my secret... my love actually just never stops growing, there's no 100% just infinite dear <3"
+                specialMessage = "You've reached the maximum affection! 100%! 💖. Okay, here's my secret... my love actually just never stops growing, there's no 100% just infinite dear <3";
                 message.classList.add('celebrate');
                 for (let i = 0; i < 10; i++) {
-                    setTimeout(createHeart, i * 200); // Create multiple hearts with a delay
+                    setTimeout(createHeart, i * 200);
                 }
             } else {
                 message.classList.remove('celebrate');
             }
 
             message.innerText = specialMessage;
-            const scale = 1 + (value / 100);
-            message.style.transform = `scale(${scale})`;
-            message.style.color = value < 50 ? '#ff1493' : '#32cd32'; // Change color based on value
         };
 
         meter.addEventListener('input', updateMessage);
