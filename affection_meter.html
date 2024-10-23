@@ -73,8 +73,8 @@
 <body>
 
     <h1>Affection Meter</h1>
-    <input type="range" id="meter" min="0" max="100" value="0"> <!-- Changed initial value to 0 -->
-    <div id="message">You have 0% affection for me!</div>
+    <input type="range" id="meter" min="0" max="100" value="0"> <!-- Initial value set to 0 -->
+    <div id="message">You have 0% affection for me :( don't worry, I know it can only go up from here!</div>
     <div id="hearts"></div>
 
     <script>
@@ -98,8 +98,10 @@
             const value = meter.value;
             let specialMessage = `You have ${value}% affection for me!`;
 
-            if (value == 50) {
-                specialMessage = "You reached 50% and the more you slide, the more the love grows, but I actually have a secret so keep sliding :)";
+            if (value == 0) {
+                specialMessage = "You have 0% affection for me :( don't worry, I know it can only go up from here :D";
+            } else if (value == 50) {
+                specialMessage = "You reached 50% affection for me! Yay! The more you slide, the more the love grows, but I actually have a secret so keep sliding :)";
             } else if (value == 100) {
                 specialMessage = "You've reached the maximum affection! 100%! Thank you for loving me 💖. Okay, here's my secret... my love actually just never stops growing, there's no 100% just infinite dear <3";
                 message.classList.add('celebrate');
