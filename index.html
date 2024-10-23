@@ -41,10 +41,10 @@
             display: block;
         }
         .tab-button.active {
-            background-color: #ddd; /* Active tab style */
+            background-color: #ddd;
         }
         #meter {
-            width: 300px; /* Width of the meter */
+            width: 300px;
         }
         #message {
             margin-top: 20px;
@@ -160,6 +160,7 @@
         `;
 
         function openTab(tabId) {
+            // Hide all tab contents and remove active class from all buttons
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
                 content.style.display = 'none';
@@ -168,9 +169,10 @@
                 button.classList.remove('active');
             });
 
+            // Show the selected tab and add active class to the corresponding button
             const activeTab = document.getElementById(tabId);
             activeTab.classList.add('active');
-            activeTab.style.display = 'block'; // Show the active tab
+            activeTab.style.display = 'block'; 
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
         }
 
@@ -183,7 +185,7 @@
         };
 
         meter.addEventListener('input', updateMessage);
-        updateMessage();  // Initialize the message
+        updateMessage(); 
 
         function showLanguageMessage(language) {
             const modalBody = document.getElementById('modalBody');
@@ -210,6 +212,4 @@
             if (password === messagePassword) {
                 document.getElementById('messageResponse').innerText = '';
                 document.getElementById('messageContent').style.display = 'block';
-            } else {
-                document.getElementById('messageResponse').innerText = 'Incorrect password';
             }
