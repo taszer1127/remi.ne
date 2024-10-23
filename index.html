@@ -93,18 +93,6 @@
             <h1>Affection Meter</h1>
             <input type="range" id="meter" min="0" max="100" value="50">
             <div id="message">You have 50% affection for me!</div>
-            <script>
-                const meter = document.getElementById('meter');
-                const message = document.getElementById('message');
-
-                const updateMessage = () => {
-                    const value = meter.value;
-                    message.innerText = `You have ${value}% affection for me!`;
-                };
-
-                meter.addEventListener('input', updateMessage);
-                updateMessage();  // Initialize the message
-            </script>
         </div>
 
         <div id="bday" class="tab-content">
@@ -168,25 +156,34 @@
             <h2>(Bangla)</h2>
             <p>Amar jaan. Tumi amar ar ami tumar. Ami tomare shob take bhalobhasi.</p>
             <p>Amar bangla nam kita oibo ami zani na... anika? sabrine? na tasneem?</p>
-            <p> ami zani! ami matro tomar :)</p>
+            <p>ami zani! ami matro tomar :)</p>
         `;
 
         function openTab(tabId) {
-            // Hide all tab content
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
                 content.style.display = 'none';
             });
-            // Remove active class from all tab buttons
             document.querySelectorAll('.tab-button').forEach(button => {
                 button.classList.remove('active');
             });
-            // Show the active tab and add active class to the button
+
             const activeTab = document.getElementById(tabId);
             activeTab.classList.add('active');
             activeTab.style.display = 'block'; // Show the active tab
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
         }
+
+        const meter = document.getElementById('meter');
+        const message = document.getElementById('message');
+
+        const updateMessage = () => {
+            const value = meter.value;
+            message.innerText = `You have ${value}% affection for me!`;
+        };
+
+        meter.addEventListener('input', updateMessage);
+        updateMessage();  // Initialize the message
 
         function showLanguageMessage(language) {
             const modalBody = document.getElementById('modalBody');
@@ -211,4 +208,8 @@
         function unlockMessageTab() {
             const password = document.getElementById('messagePassword').value;
             if (password === messagePassword) {
-                document.getElementById('messageResponse').
+                document.getElementById('messageResponse').innerText = '';
+                document.getElementById('messageContent').style.display = 'block';
+            } else {
+                document.getElementById('messageResponse').innerText = 'Incorrect password';
+            }
