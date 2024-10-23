@@ -207,9 +207,15 @@
             }
         }
 
-        function unlockMessageTab() {
+               function unlockMessageTab() {
             const password = document.getElementById('messagePassword').value;
             if (password === messagePassword) {
                 document.getElementById('messageResponse').innerText = '';
                 document.getElementById('messageContent').style.display = 'block';
+            } else {
+                document.getElementById('messageResponse').innerText = 'Incorrect password';
             }
+        }
+    </script>
+</body>
+</html>
