@@ -5,20 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Affection Meter</title>
     <link rel="stylesheet" href="web.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #ff69b4;
+        }
+        #meter {
+            width: 300px;
+            appearance: none;
+            height: 20px;
+            border-radius: 10px;
+            background: linear-gradient(to right, #ff69b4, #ffd700);
+            outline: none;
+            transition: background 0.3s;
+        }
+        #meter::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff1493;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        @keyframes celebrate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); color: #ffd700; }
+            100% { transform: scale(1); color: #ff1493; }
+        }
+        .celebrate {
+            animation: celebrate 1s infinite;
+        }
+        .heart {
+            position: absolute;
+            color: #ff1493;
+            font-size: 24px;
+            animation: float 1.5s forwards;
+            opacity: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <h1>Affection Meter</h1>
-    <input type="range" id="meter" min="0" max="100" value="50" class="tab-button"> <!-- Added class for styling -->
-    <div id="message" class="text">You have 50% affection for me!</div> <!-- Added class for styling -->
+    <input type="range" id="meter" min="0" max="100" value="50" class="tab-button">
+    <div id="message" class="text">You reached 50% and the more you slide, the more the love grows, but I actually have a secret so keep sliding :)</div>
+    <div id="hearts"></div>
 
     <script>
         const meter = document.getElementById('meter');
         const message = document.getElementById('message');
+        const heartsContainer = document.getElementById('hearts');
+
+        const createHeart = () => {
+            const heart = document.createElement('span');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️'; // Heart symbol
+            heart.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            heartsContainer.appendChild(heart);
+
+            // Remove the heart after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, 1500);
+        };
 
         const updateMessage = () => {
             const value = meter.value;
-            message.innerText = `You have ${value}% affection for me!`;
+            let specialMessage = `You have ${value}% affection for me!`;
+
+            if (value == 50) {
+                specialMessage = "You reached 50% and the more you slide, the more the love grows, but I actually have a secret so keep sliding :)";
+            } else if (value == 100) {
+                specialMessage = "You've reached the maximum affection! 100%! 💖. Okay, here's my secret... my love actually just never stops growing, there's no 100% just infinite dear <3"
+                message.classList.add('celebrate');
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(createHeart, i * 200); // Create multiple hearts with a delay
+                }
+            } else {
+                message.classList.remove('celebrate');
+            }
+
+            message.innerText = specialMessage;
+            const scale = 1 + (value / 100);
+            message.style.transform = `scale(${scale})`;
+            message.style.color = value < 50 ? '#ff1493' : '#32cd32'; // Change color based on value
         };
 
         meter.addEventListener('input', updateMessage);
