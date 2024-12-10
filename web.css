@@ -4,59 +4,89 @@ p {
 }
 
 body {
-    background-color: white; /* Set background to white */
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: auto; /* Allow scrolling if content overflows */
-}
-
-.container {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 600px;
-    word-wrap: break-word;
+    background-color: white; /* Change background to white */
     text-align: center;
 }
 
-.message {
-    font-size: 2em;
-    color: #6c63ff;
-    margin-bottom: 20px;
-    white-space: normal;
-}
-
-.description {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    color: #555;
-    white-space: normal;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1em;
+h1 {
+    font-size: 24px;
     color: white;
-    background-color: #6c63ff;
-    border: none;
-    border-radius: 5px;
+}
+
+.text {
+    color: #A369A2;
+}
+
+#smiley {
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* New CSS rules for h2 and h3 */
+h2 {
+    color: #bc7de8; /* Purple color */
+}
+
+h3 {
+    color: #FA8072; /* Salmon color */
+}
+
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensures all tabs stretch to the same height */
+}
+
+.tab-content {
+    display: none; /* Hide all tabs by default */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Optional: border for clarity */
+    flex-grow: 1; /* Allow content to grow */
+    min-height: 400px; /* Set a minimum height for uniformity */
+}
+
+.tab-content.active {
+    display: block; /* Show the active tab */
+}
+
+.tabs {
+    margin-bottom: 20px; /* Space between tabs and content */
+    background-color: #bc7de8; /* Set background color to match h2 */
+    padding: 10px; /* Add padding for visual appeal */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+.tab-button {
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    border: none;
+    background-color: #FA8072; /* Set tab background color to match h3 */
+    color: white; /* Tab text color */
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #5a54e6;
+.tab-button.active {
+    background-color: #9b5bc7; /* Darker shade for active tab */
 }
 
+.tab-button:hover {
+    background-color: #a067d2; /* Hover effect for buttons */
+}
+
+footer {
+    background-color: #bc7de8; /* Set footer background color to match h2 */
+    color: white; /* Footer text color */
+    padding: 10px; /* Add padding for spacing */
+    position: relative; /* Ensures proper stacking */
+    bottom: 0;
+    width: 100%;
+}
+
+/* New styles for the buttons in the ♡ tab */
 .button {
     background-color: #FA8072; /* Same as tab color */
     color: white; /* Button text color */
@@ -73,63 +103,27 @@ button:hover {
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-/* New styles for additional elements */
-h2 {
-    color: #bc7de8; /* Purple color */
+.more-to-come {
+    color: #bc7de8; /* Color for the "More languages" text */
 }
 
-h3 {
-    color: #FA8072; /* Salmon color */
+/* New styles for the unlock button in the birthday tab */
+.unlock-button {
+    background-color: #FA8072; /* Same as tab color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 20px; /* Rounded corners for charm */
+    padding: 12px 24px; /* Increased padding for a nicer look */
+    margin-top: 10px; /* Space above the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
 }
 
-.tab-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+.unlock-button:hover {
+    background-color: #bc7de8; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-.tab-content {
-    display: none;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    flex-grow: 1;
-    min-height: 400px;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.tabs {
-    margin-bottom: 20px;
-    background-color: #bc7de8;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.tab-button {
-    cursor: pointer;
-    padding: 10px 20px;
-    border: none;
-    background-color: #FA8072;
-    color: white;
-    transition: background-color 0.3s;
-}
-
-.tab-button.active {
-    background-color: #9b5bc7;
-}
-
-.tab-button:hover {
-    background-color: #a067d2;
-}
-
-footer {
-    background-color: #bc7de8;
-    color: white;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+.password-container {
+    margin-top: 20px;
 }
