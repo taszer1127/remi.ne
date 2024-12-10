@@ -43,24 +43,27 @@
         .tab-button.active {
             background-color: #ddd;
         }
-        /* Additional Styles for Heartfelt Message */
-        .heartfelt-message {
-            text-align: center;
-            padding: 20px;
-            font-size: 1.2em;
+
+        /* Custom styles for the "Sorry ILY" button */
+        .sorry-button-container {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
         }
-        .heartfelt-message button {
-            padding: 10px 20px;
-            font-size: 1em;
+
+        .sorry-button {
+            background-color: #d9534f;
             color: white;
-            background-color: #6c63ff;
             border: none;
+            padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 16px;
+            text-decoration: none;
         }
-        .heartfelt-message button:hover {
-            background-color: #5a54e6;
+
+        .sorry-button:hover {
+            background-color: #c9302c;
         }
     </style>
 </head>
@@ -74,7 +77,6 @@
             <button class="tab-button" onclick="openTab('bday')">Birthday</button>
             <button class="tab-button" onclick="openTab('reminder')">Reminder</button>
             <button class="tab-button" onclick="openTab('notes')">Notes</button>
-            <button class="tab-button" onclick="openTab('heartfelt')">Heartfelt Message</button>
         </div>
 
         <div id="tab1" class="tab-content active">
@@ -126,21 +128,16 @@
             <div id="messageContent" style="display: none;">
                 <iframe src="reminder.html" style="border:none; width:100%; height:400px;"></iframe>
             </div>
+
+            <!-- Sorry ILY Button -->
+            <div class="sorry-button-container">
+                <a href="sorry.html" class="sorry-button">Sorry ILY</a>
+            </div>
         </div>
 
         <div id="notes" class="tab-content">
             <iframe src="notes.html" style="border:none; width:100%; height:400px;"></iframe>
         </div>
-
-      
-        <div id="heartfelt" class="tab-content">
-            <div class="heartfelt-message">
-                <h3>Hello, you are truly appreciated.</h3>
-                <p>In a world that often messes you up and is quick to make people bitter and cold, I found one of the warmest people ever. You melt my heart from keeping it warm and safe in your hands, treating it with the fragility the world didn't always give me.</p>
-                <button id="changeMessageBtn">Click for a new message</button>
-            </div>
-        </div>
-
     </div>
 
     <footer>
@@ -189,29 +186,6 @@
             activeTab.style.display = 'block'; 
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
         }
-
-        // Heartfelt message functionality
-        const messages = [
-            "You are enough, just as you are.",
-            "The world is a better place because you're in it.",
-            "Your kindness is a gift to those around you.",
-            "Never forget how important you are.",
-            "The love you give out always comes back to you.",
-"I love you more than words can explain and action can provide.",
-"You make the darkest days feel safe, you're my umbrella in the rain.",
-"You're so incredibly strong, the world makes everyone cold and hard, yet to be so soft and to be you— the most incredible amount of strength I'd ever see in a person.",
-"You're my human angel, not because you're perfect,  but because you're imperfectly perfect and your heart has no bounds for the love and support it still gives.",
-"I may not be my best at all at times, but knowing I found you and have you still with me even at my worst, I must've done something right.",
-"I never knew or understood love until I understood and knew your love.",
-"I could never love someone else the same, you give me the spark, but you also give me the safety and peace I've craved.",
-"I rather spend hours hearing you talk about chess or osu! over any vacation anywhere.",
-"I learned how to code this for you. I may not be as talented as you are, but I want to show my appreciation in something that's a big part of your field."
-       ];
-
-        document.getElementById("changeMessageBtn").addEventListener("click", function() {
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            document.querySelector(".heartfelt-message p").textContent = randomMessage;
-        });
 
         function showLanguageMessage(language) {
             const modalBody = document.getElementById('modalBody');
