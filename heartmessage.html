@@ -14,7 +14,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Ensures the body takes up the full viewport height */
+            overflow: hidden; /* Prevents overflow */
         }
 
         .container {
@@ -23,6 +24,8 @@
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+            overflow: hidden; /* Ensures content doesn't overflow the container */
         }
 
         .message {
@@ -70,28 +73,26 @@
             "Your kindness is a gift to those around you.",
             "Never forget how important you are.",
             "The love you give out always comes back to you.",
-"I love you more than words can explain and action can provide.",
-
-"You make the darkest days feel safe, you're my umbrella in the rain.",
-
-"You're so incredibly strong, the world makes everyone cold and hard , yet to be so soft and to be you— the most incredible amount of strength I'd ever see in a person.",
-
-"You're my human angel, not because you're perfect, but because you're imperfectly perfect and your heart has no bounds for the love and support it still gives.",
-
-"I may not be my best at all at times, but knowing I found you and have you still with me even at my worst I must've done something right.",
-
-"I never knew or understood love until I understood and knew your love.",
-
-"I could never love someone else the same, you give me the spark, but you also give me the safety and peace I've craved.",
-
-"I rather spend hours hearing you talk about chess or osu! over any vacation anywhere.",
-
-"I learned how to code this for you. I may not be as talented as you are, but I want to show my appreciation in something that's a big part of your field."
+            "I love you more than words can explain and action can provide.",
+            "You make the darkest days feel safe, you're my umbrella in the rain.",
+            "You're so incredibly strong, the world makes everyone cold and hard, yet to be so soft and to be you— the most incredible amount of strength I'd ever see in a person.",
+            "You're my human angel, not because you're perfect, but because you're imperfectly perfect and your heart has no bounds for the love and support it still gives.",
+            "I may not be my best at all at times, but knowing I found you and have you still with me even at my worst I must've done something right.",
+            "I never knew or understood love until I understood and knew your love.",
+            "I could never love someone else the same, you give me the spark, but you also give me the safety and peace I've craved.",
+            "I rather spend hours hearing you talk about chess or osu! over any vacation anywhere.",
+            "I learned how to code this for you. I may not be as talented as you are, but I want to show my appreciation in something that's a big part of your field."
         ];
 
-        document.getElementById("changeMessageBtn").addEventListener("click", function() {
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            document.querySelector(".message").textContent = randomMessage;
+        // Make sure the script runs after the DOM is fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            const changeMessageBtn = document.getElementById("changeMessageBtn");
+            const messageElement = document.querySelector(".message");
+
+            changeMessageBtn.addEventListener("click", function() {
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                messageElement.textContent = randomMessage;
+            });
         });
     </script>
 </body>
