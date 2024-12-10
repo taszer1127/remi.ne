@@ -43,6 +43,25 @@
         .tab-button.active {
             background-color: #ddd;
         }
+        /* Additional Styles for Heartfelt Message */
+        .heartfelt-message {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+        }
+        .heartfelt-message button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #6c63ff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .heartfelt-message button:hover {
+            background-color: #5a54e6;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +74,7 @@
             <button class="tab-button" onclick="openTab('bday')">Birthday</button>
             <button class="tab-button" onclick="openTab('reminder')">Reminder</button>
             <button class="tab-button" onclick="openTab('notes')">Notes</button>
+            <button class="tab-button" onclick="openTab('heartfelt')">Heartfelt Message</button>
         </div>
 
         <div id="tab1" class="tab-content active">
@@ -111,6 +131,16 @@
         <div id="notes" class="tab-content">
             <iframe src="notes.html" style="border:none; width:100%; height:400px;"></iframe>
         </div>
+
+      
+        <div id="heartfelt" class="tab-content">
+            <div class="heartfelt-message">
+                <h3>Hello, you are truly appreciated.</h3>
+                <p>In a world that often moves too quickly, we forget to stop and remember how much we matter to one another. But you, yes you, are making a difference simply by being yourself. Keep shining bright and know that you are loved.</p>
+                <button id="changeMessageBtn">Click for a new message</button>
+            </div>
+        </div>
+
     </div>
 
     <footer>
@@ -159,6 +189,20 @@
             activeTab.style.display = 'block'; 
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
         }
+
+        // Heartfelt message functionality
+        const messages = [
+            "You are enough, just as you are.",
+            "The world is a better place because you're in it.",
+            "Your kindness is a gift to those around you.",
+            "Never forget how important you are.",
+            "The love you give out always comes back to you."
+        ];
+
+        document.getElementById("changeMessageBtn").addEventListener("click", function() {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.querySelector(".heartfelt-message p").textContent = randomMessage;
+        });
 
         function showLanguageMessage(language) {
             const modalBody = document.getElementById('modalBody');
