@@ -4,61 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heartfelt Message</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: auto; /* Ensure that the content can scroll if needed */
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 90%;  /* Allows container to adjust width */
-            max-width: 600px;  /* Limit maximum width */
-            word-wrap: break-word;  /* Ensure long words break and wrap inside container */
-        }
-
-        .message {
-            font-size: 2em;
-            color: #6c63ff;
-            margin-bottom: 20px;
-            white-space: normal;  /* Allow the text to wrap */
-        }
-
-        .description {
-            font-size: 1.2em;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            color: #555;
-            white-space: normal;  /* Allow the text to wrap */
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1em;
-            color: white;
-            background-color: #6c63ff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #5a54e6;
-        }
-    </style>
+    <link rel="stylesheet" href="web.css"> <!-- Link to your external web.css -->
 </head>
 <body>
     <div class="container">
@@ -66,7 +12,7 @@
         <p class="description">
             In a world that often messes you up and is quick to make people bitter and cold, I found one of the warmest people ever. You melt my heart from keeping it safe in your hands, treating it with the fragility the world didn't always give me.
         </p>
-        <button id="changeMessageBtn">Click for a new message</button>
+        <button id="changeMessageBtn" class="button">Click for a new message</button>
     </div>
 
     <script>
@@ -87,7 +33,6 @@
             "I learned how to code this for you. I may not be as talented as you are, but I want to show my appreciation in something that's a big part of your field."
         ];
 
-        // Make sure the script runs after the DOM is fully loaded
         document.addEventListener("DOMContentLoaded", function() {
             const changeMessageBtn = document.getElementById("changeMessageBtn");
             const messageElement = document.querySelector(".message");
