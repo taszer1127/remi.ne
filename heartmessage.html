@@ -14,8 +14,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Ensures the body takes up the full viewport height */
-            overflow: hidden; /* Prevents overflow */
+            min-height: 100vh;
+            overflow: auto; /* Ensure that the content can scroll if needed */
         }
 
         .container {
@@ -24,14 +24,16 @@
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 80%;
-            overflow: hidden; /* Ensures content doesn't overflow the container */
+            width: 90%;  /* Allows container to adjust width */
+            max-width: 600px;  /* Limit maximum width */
+            word-wrap: break-word;  /* Ensure long words break and wrap inside container */
         }
 
         .message {
             font-size: 2em;
             color: #6c63ff;
             margin-bottom: 20px;
+            white-space: normal;  /* Allow the text to wrap */
         }
 
         .description {
@@ -39,6 +41,7 @@
             line-height: 1.5;
             margin-bottom: 20px;
             color: #555;
+            white-space: normal;  /* Allow the text to wrap */
         }
 
         button {
