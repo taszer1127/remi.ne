@@ -65,6 +65,37 @@
         .sorry-button:hover {
             background-color: #c9302c;
         }
+
+        /* Add styling for crossword content */
+        .crossword-grid {
+            display: grid;
+            grid-template-columns: repeat(15, 30px);
+            grid-template-rows: repeat(15, 30px);
+            gap: 1px;
+        }
+
+        .crossword-cell {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .crossword-cell input {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            border: none;
+            outline: none;
+        }
+
+        .crossword-cell input:focus {
+            background-color: #e0e0e0;
+        }
+
     </style>
 </head>
 <body>
@@ -78,8 +109,11 @@
             <button class="tab-button" onclick="openTab('reminder')">Reminder</button>
             <button class="tab-button" onclick="openTab('notes')">Notes</button>
             <button class="tab-button" onclick="openTab('heartfelt')">Heartfelt Messages</button>
+            <!-- Add crossword tab button -->
+            <button class="tab-button" onclick="openTab('crossword')">Crossword</button>
         </div>
 
+        <!-- Existing tabs -->
         <div id="tab1" class="tab-content active">
             <h3>averycuteperson.com</h3>
             <p>I have no idea what I'm doing, but I'm going to learn now :)</p>
@@ -144,6 +178,14 @@
             <!-- Directly linking heartfelt messages -->
             <iframe src="heartmessage.html" style="border:none; width:100%; height:400px;"></iframe>
         </div>
+
+        <!-- Crossword Tab Content -->
+        <div id="crossword" class="tab-content">
+            <h3>Crossword Puzzle</h3>
+            <div id="crosswordGrid" class="crossword-grid">
+                <!-- The crossword grid will be loaded here -->
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -193,35 +235,48 @@
             document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
         }
 
-        function showLanguageMessage(language) {
-            const modalBody = document.getElementById('modalBody');
-            modalBody.innerHTML = eval(language);
-            document.getElementById('letterModal').style.display = 'block';
+        // Create crossword grid
+        const crosswordGrid = document.getElementById('crosswordGrid');
+        const gridData = [
+            ['R', 'E', 'M', 'I', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'N', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'E', 'E', 'M', 'O', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'L', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'O', 'V', 'E', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', 'S', 'H', 'E', 'L', 'L', 'S', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'I', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', 'M', 'I', 'S', 'H', 'T', 'I', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', 'O', 'R', 'A', 'N', 'G', 'E', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'P', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', 'P', 'U', 'R', 'P', 'L', 'E', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', 'B', 'A', 'R', 'B', 'I', 'E', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', 'T', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', 'B', 'U', 'T', 'T', 'E', 'R', 'F', 'L', 'Y', ' ', ' '],
+            [' ', ' ', ' ', 'C', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', 'C', 'O', 'O', 'K', 'I', 'E', 'S', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        ];
+
+        function createCrosswordGrid() {
+            gridData.forEach(row => {
+                row.forEach(cell => {
+                    const cellElement = document.createElement('div');
+                    cellElement.classList.add('crossword-cell');
+
+                    if (cell === ' ') {
+                        cellElement.innerHTML = '<input type="text" maxlength="1" />';
+                    } else {
+                        cellElement.textContent = cell;
+                    }
+
+                    crosswordGrid.appendChild(cellElement);
+                });
+            });
         }
 
-        function closeModal() {
-            document.getElementById('letterModal').style.display = 'none';
-        }
-
-        function unlockBdayTab() {
-            const password = document.getElementById('bdayPassword').value;
-            if (password === correctPassword) {
-                document.getElementById('bdayMessage').innerText = '';
-                document.getElementById('bdayContent').style.display = 'block';
-            } else {
-                document.getElementById('bdayMessage').innerText = 'Incorrect password';
-            }
-        }
-
-        function unlockMessageTab() {
-            const password = document.getElementById('messagePassword').value;
-            if (password === messagePassword) {
-                document.getElementById('messageResponse').innerText = '';
-                document.getElementById('messageContent').style.display = 'block';
-            } else {
-                document.getElementById('messageResponse').innerText = 'Incorrect password';
-            }
-        }
+        createCrosswordGrid();
     </script>
 </body>
 </html>
